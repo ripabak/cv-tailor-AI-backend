@@ -7,8 +7,8 @@ from sqlalchemy.orm import selectinload
 from ..database import get_db
 from ..models import User, UserCV, CVVersion, Template
 from ..schemas import (
-    CVCreate, CVGenerate, CVResponse, CVDetailResponse,
-    CVVersionResponse, CVGenerateResponse,
+    CVCreate, CVResponse, CVDetailResponse,
+    CVVersionResponse,
 )
 from ..auth import get_current_user
 
@@ -34,7 +34,7 @@ async def list_cvs(
     return [CVResponse.model_validate(cv) for cv in cvs]
 
 
-@router.post("", response_model=CVGenerateResponse)
+@router.post("", response_model=CVDetailResponse, status_code=status.HTTP_201_CREATED)
 async def create_cv(
     data: CVCreate,
     user: User = Depends(get_current_user),
@@ -47,22 +47,7 @@ async def create_cv(
     if not template:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Template not found")
 
-    from ..routers.ai import call_openrouter
-
-    try:
-        generated_html = await call_openrouter(template.html_code, data.prompt)
-    except RuntimeError as e:
-        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(e))
-    if generated_html is None:
-        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="LLM generation failed")
-
-    if not generated_html.strip().lower().startswith("<html"):
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="LLM returned invalid HTML. Please retry.",
-        )
-
-    title = extract_title(generated_html)
+    title = extract_title(template.html_code)
 
     cv = UserCV(
         user_id=user.id,
@@ -72,24 +57,20 @@ async def create_cv(
     db.add(cv)
     await db.flush()
 
-    version = CVVersion(user_cv_id=cv.id, html_content=generated_html)
+    version = CVVersion(user_cv_id=cv.id, html_content=template.html_code)
     db.add(version)
     await db.commit()
     await db.refresh(cv)
 
-    cv_detail = CVDetailResponse(
+    return CVDetailResponse(
         id=cv.id,
         user_id=cv.user_id,
         template_id=cv.template_id,
         title=cv.title,
         created_at=cv.created_at,
         updated_at=cv.updated_at,
-        latest_html=generated_html,
+        latest_html=template.html_code,
         template_title=template.title,
-    )
-    return CVGenerateResponse(
-        cv=cv_detail,
-        version=CVVersionResponse.model_validate(version),
     )
 
 

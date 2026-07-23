@@ -40,11 +40,6 @@ class TemplateResponse(BaseModel):
 
 class CVCreate(BaseModel):
     template_id: int
-    prompt: str
-
-
-class CVGenerate(BaseModel):
-    prompt: str
 
 
 class CVResponse(BaseModel):
@@ -72,6 +67,25 @@ class CVVersionResponse(BaseModel):
     model_config = {"from_attributes": True}
 
 
-class CVGenerateResponse(BaseModel):
-    cv: CVDetailResponse
-    version: CVVersionResponse
+class ChatMessage(BaseModel):
+    role: str
+    content: str | None = None
+    tool_calls: list[dict] | None = None
+    tool_call_id: str | None = None
+
+
+class ChatRequest(BaseModel):
+    messages: list[ChatMessage]
+    session_id: str | None = None
+    stream: bool = True
+
+
+class MessageResponse(BaseModel):
+    id: int
+    role: str
+    content: str | None = None
+    tool_calls: dict | None = None
+    tool_call_id: str | None = None
+    created_at: datetime.datetime
+
+    model_config = {"from_attributes": True}
