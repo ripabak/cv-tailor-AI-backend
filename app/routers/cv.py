@@ -49,7 +49,10 @@ async def create_cv(
 
     from ..routers.ai import call_openrouter
 
-    generated_html = await call_openrouter(template.html_code, data.prompt)
+    try:
+        generated_html = await call_openrouter(template.html_code, data.prompt)
+    except RuntimeError as e:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(e))
     if generated_html is None:
         raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="LLM generation failed")
 
@@ -182,7 +185,6 @@ async def revert_version(
 
     new_version = CVVersion(user_cv_id=cv.id, html_content=source_version.html_content)
     db.add(new_version)
-    cv.updated_at = new_version.created_at
     await db.commit()
     await db.refresh(new_version)
 

@@ -16,6 +16,9 @@ router = APIRouter(prefix="/api/cv", tags=["ai"])
 
 
 async def call_openrouter(template_html: str, user_prompt: str) -> str | None:
+    if not OPENROUTER_API_KEY:
+        raise RuntimeError("OPENROUTER_API_KEY is not set")
+
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": f"Template HTML:\n\n{template_html}\n\nInstruksi user:\n{user_prompt}"},
@@ -68,7 +71,10 @@ async def generate_refine(
     if not latest_version:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="No HTML to refine")
 
-    generated_html = await call_openrouter(latest_version.html_content, data.prompt)
+    try:
+        generated_html = await call_openrouter(latest_version.html_content, data.prompt)
+    except RuntimeError as e:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(e))
     if generated_html is None:
         raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="LLM generation failed")
 
@@ -84,9 +90,9 @@ async def generate_refine(
 
     version = CVVersion(user_cv_id=cv.id, html_content=generated_html)
     db.add(version)
-    cv.updated_at = version.created_at
     await db.commit()
     await db.refresh(version)
+    await db.refresh(cv)
 
     cv_detail = CVDetailResponse(
         id=cv.id,
