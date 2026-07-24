@@ -94,7 +94,18 @@ async def start_agent_run(
 
             session.buffer_event(_make_event("lifecycle", {"event": "running", "graph_name": "cv_agent"}))
 
+            pending_tool_ids: list[str] = []
+
             async for message in stream.messages:
+                # Tools from previous round have finished (model is responding)
+                for tc_id in pending_tool_ids:
+                    session.buffer_event(_make_event("tool_end", {
+                        "tool_call_id": tc_id,
+                        "output": "",
+                        "error": None,
+                    }))
+                pending_tool_ids.clear()
+
                 msg_id = str(uuid.uuid4())
                 node = getattr(message, "node", "agent")
 
@@ -113,22 +124,38 @@ async def start_agent_run(
                         }))
 
                 if hasattr(message, "tool_calls"):
-                    finalized = await message.tool_calls.get() if hasattr(message.tool_calls, "get") else []
+                    finalized = await message.tool_calls
                     if finalized:
+                        tcs = [
+                            {
+                                "id": tc.get("id", str(uuid.uuid4())),
+                                "name": tc["name"],
+                                "args": tc["args"],
+                                "type": "tool_call",
+                            }
+                            for tc in finalized
+                        ] if isinstance(finalized, list) else []
                         session.buffer_event(_make_event("tool_calls_done", {
                             "id": msg_id,
-                            "tool_calls": [
-                                {
-                                    "id": tc.get("id", str(uuid.uuid4())),
-                                    "name": tc["name"],
-                                    "args": tc["args"],
-                                    "type": "tool_call",
-                                }
-                                for tc in finalized
-                            ] if isinstance(finalized, list) else [],
+                            "tool_calls": tcs,
                         }))
+                        for tc in tcs:
+                            pending_tool_ids.append(tc["id"])
+                            session.buffer_event(_make_event("tool_start", {
+                                "tool_call_id": tc["id"],
+                                "name": tc["name"],
+                                "args": tc["args"],
+                            }))
 
                 session.buffer_event(_make_event("message_end", {"id": msg_id}))
+
+            # Emit tool_end for any tools left pending at run end
+            for tc_id in pending_tool_ids:
+                session.buffer_event(_make_event("tool_end", {
+                    "tool_call_id": tc_id,
+                    "output": "",
+                    "error": None,
+                }))
 
             session.buffer_event(_make_event("lifecycle", {"event": "completed", "graph_name": "cv_agent"}))
 
