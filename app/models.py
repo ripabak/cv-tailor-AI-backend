@@ -1,5 +1,5 @@
 import datetime
-from sqlalchemy import Integer, String, Text, Boolean, DateTime, ForeignKey, func, JSON
+from sqlalchemy import Integer, String, Text, Boolean, DateTime, ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .database import Base
@@ -20,7 +20,6 @@ class User(Base):
     )
 
     cvs: Mapped[list["UserCV"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    conversations: Mapped[list["Conversation"]] = relationship(back_populates="user", cascade="all, delete-orphan")
 
 
 class Template(Base):
@@ -62,7 +61,6 @@ class UserCV(Base):
     versions: Mapped[list["CVVersion"]] = relationship(
         back_populates="cv", cascade="all, delete-orphan", order_by="CVVersion.created_at.desc()"
     )
-    conversations: Mapped[list["Conversation"]] = relationship(back_populates="cv", cascade="all, delete-orphan")
 
 
 class CVVersion(Base):
@@ -78,37 +76,3 @@ class CVVersion(Base):
     )
 
     cv: Mapped["UserCV"] = relationship(back_populates="versions")
-
-
-class Conversation(Base):
-    __tablename__ = "conversation"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    session_id: Mapped[str] = mapped_column(String, unique=True, nullable=False, index=True)
-    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("user.id"), nullable=False)
-    cv_id: Mapped[int] = mapped_column(Integer, ForeignKey("user_cv.id"), nullable=False)
-    created_at: Mapped[datetime.datetime] = mapped_column(
-        DateTime, server_default=func.now()
-    )
-
-    user: Mapped["User"] = relationship(back_populates="conversations")
-    cv: Mapped["UserCV"] = relationship(back_populates="conversations")
-    messages: Mapped[list["Message"]] = relationship(
-        back_populates="conversation", cascade="all, delete-orphan", order_by="Message.created_at"
-    )
-
-
-class Message(Base):
-    __tablename__ = "message"
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    conversation_id: Mapped[int] = mapped_column(Integer, ForeignKey("conversation.id"), nullable=False)
-    role: Mapped[str] = mapped_column(String, nullable=False)
-    content: Mapped[str | None] = mapped_column(Text, nullable=True)
-    tool_calls: Mapped[dict | None] = mapped_column(JSON, nullable=True)
-    tool_call_id: Mapped[str | None] = mapped_column(String, nullable=True)
-    created_at: Mapped[datetime.datetime] = mapped_column(
-        DateTime, server_default=func.now()
-    )
-
-    conversation: Mapped["Conversation"] = relationship(back_populates="messages")
