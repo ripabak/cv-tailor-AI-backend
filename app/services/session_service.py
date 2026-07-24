@@ -4,8 +4,8 @@ import uuid
 from collections import defaultdict
 from typing import AsyncGenerator
 
-from sqlalchemy.ext.asyncio import AsyncSession
 from ..agent.agent import build_agent
+from ..database import async_session
 
 
 class AgentSession:
@@ -75,7 +75,6 @@ async def start_agent_run(
     thread_id: str,
     cv_id: int,
     messages: list[dict],
-    db: AsyncSession,
 ) -> str:
     session = session_manager.get(thread_id)
     run_id = str(uuid.uuid4())
@@ -84,6 +83,7 @@ async def start_agent_run(
     session.events.clear()
 
     async def run():
+        db = async_session()
         try:
             agent = build_agent(db, cv_id)
 
@@ -167,6 +167,7 @@ async def start_agent_run(
             }))
         finally:
             session._running = False
+            await db.close()
 
     session._task = asyncio.create_task(run())
     return run_id

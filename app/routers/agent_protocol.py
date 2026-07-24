@@ -2,9 +2,7 @@ import json
 import asyncio
 from fastapi import APIRouter, Depends, Request
 from fastapi.responses import StreamingResponse
-from sqlalchemy.ext.asyncio import AsyncSession
 
-from ..database import get_db
 from ..auth import get_current_user
 from ..models import User
 from ..services.session_service import start_agent_run, stream_events
@@ -17,7 +15,6 @@ async def handle_command(
     thread_id: str,
     request: Request,
     user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db),
 ):
     command = await request.json()
     method = command.get("method", "")
@@ -42,7 +39,7 @@ async def handle_command(
                 "message": "cv_id is required in input",
             }
 
-        run_id = await start_agent_run(thread_id, cv_id, messages, db)
+        run_id = await start_agent_run(thread_id, cv_id, messages)
         return {
             "type": "success",
             "id": cmd_id,
@@ -62,7 +59,6 @@ async def handle_stream(
     thread_id: str,
     request: Request,
     user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db),
 ):
     params = await request.json()
     channels_str = params.get("channels", "values,lifecycle")
