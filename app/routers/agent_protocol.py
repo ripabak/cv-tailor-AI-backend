@@ -5,7 +5,7 @@ from fastapi.responses import StreamingResponse
 
 from ..auth import get_current_user
 from ..models import User
-from ..services.session_service import start_agent_run, stream_events
+from ..services.agent_session_service import start_agent_run, stop_agent_run, stream_events
 
 router = APIRouter(prefix="/api/threads", tags=["agent-protocol"])
 
@@ -44,6 +44,14 @@ async def handle_command(
             "type": "success",
             "id": cmd_id,
             "result": {"run_id": run_id},
+        }
+
+    if method == "run.cancel":
+        stop_agent_run(thread_id)
+        return {
+            "type": "success",
+            "id": cmd_id,
+            "result": {"cancelled": True},
         }
 
     return {
