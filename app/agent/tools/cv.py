@@ -36,7 +36,7 @@ def _try_replace_flexible(html: str, old_content: str, new_content: str) -> str 
 def create_tools(db: AsyncSession, cv_id: int) -> list:
     @tool
     async def get_current_html() -> str:
-        """Read the current CV HTML content. Call this first before making any edits."""
+        """Read the current CV HTML content and title. Call this first before making any edits."""
         await emit_progress("Reading current CV HTML from database...")
 
         cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
@@ -54,7 +54,7 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
             return "No CV HTML found."
 
         await emit_progress(f"Loaded CV HTML ({len(version.html_content)} chars)")
-        return version.html_content
+        return f"[CV Title: {cv.title}]\n\n{version.html_content}"
 
     @tool
     async def cv_replace(old_content: str, new_content: str) -> str:
