@@ -47,6 +47,7 @@ class CVResponse(BaseModel):
     user_id: int
     template_id: int
     title: str
+    current_version_id: int | None = None
     created_at: datetime.datetime
     updated_at: datetime.datetime
 
@@ -62,6 +63,7 @@ class CVVersionResponse(BaseModel):
     id: int
     user_cv_id: int
     html_content: str
+    parent_version_id: int | None = None
     created_at: datetime.datetime
 
     model_config = {"from_attributes": True}

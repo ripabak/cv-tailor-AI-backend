@@ -57,11 +57,14 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         """Read the current CV HTML content. Call this first before making any edits."""
         await emit_progress("Reading current CV HTML from database...")
 
+        cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
+        cv = cv_result.scalar_one_or_none()
+        if not cv or not cv.current_version_id:
+            await emit_progress("No existing CV HTML found.")
+            return "No CV HTML found."
+
         result = await db.execute(
-            select(CVVersion)
-            .where(CVVersion.user_cv_id == cv_id)
-            .order_by(CVVersion.created_at.desc())
-            .limit(1)
+            select(CVVersion).where(CVVersion.id == cv.current_version_id)
         )
         version = result.scalar_one_or_none()
         if not version:
@@ -85,11 +88,13 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         Returns:
             Confirmation message or error if the block was not found or matched multiple times."""
         await emit_progress("Reading current CV HTML...")
+        cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
+        cv = cv_result.scalar_one_or_none()
+        if not cv or not cv.current_version_id:
+            return "No CV HTML found to edit."
+
         result = await db.execute(
-            select(CVVersion)
-            .where(CVVersion.user_cv_id == cv_id)
-            .order_by(CVVersion.created_at.desc())
-            .limit(1)
+            select(CVVersion).where(CVVersion.id == cv.current_version_id)
         )
         version = result.scalar_one_or_none()
         if not version:
@@ -109,15 +114,14 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         new_html = current_html.replace(old_content, new_content, 1)
 
         title = _extract_title(new_html)
-        if title and title != "Untitled CV":
-            cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
-            cv = cv_result.scalar_one_or_none()
-            if cv:
-                cv.title = title
+        if cv and title and title != "Untitled CV":
+            cv.title = title
+        if cv:
+            new_version = CVVersion(user_cv_id=cv_id, html_content=new_html, parent_version_id=version.id)
+            db.add(new_version)
+            await db.flush()
+            cv.current_version_id = new_version.id
 
-        await emit_progress("Saving new CV version to database...")
-        new_version = CVVersion(user_cv_id=cv_id, html_content=new_html)
-        db.add(new_version)
         await db.commit()
 
         await emit_progress(f"Replace completed. Title: {title}")
@@ -137,11 +141,13 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         Returns:
             Confirmation with count of replacements or error if nothing was found."""
         await emit_progress("Reading current CV HTML...")
+        cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
+        cv = cv_result.scalar_one_or_none()
+        if not cv or not cv.current_version_id:
+            return "No CV HTML found to edit."
+
         result = await db.execute(
-            select(CVVersion)
-            .where(CVVersion.user_cv_id == cv_id)
-            .order_by(CVVersion.created_at.desc())
-            .limit(1)
+            select(CVVersion).where(CVVersion.id == cv.current_version_id)
         )
         version = result.scalar_one_or_none()
         if not version:
@@ -158,15 +164,14 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         new_html = current_html.replace(old_content, new_content)
 
         title = _extract_title(new_html)
-        if title and title != "Untitled CV":
-            cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
-            cv = cv_result.scalar_one_or_none()
-            if cv:
-                cv.title = title
+        if cv and title and title != "Untitled CV":
+            cv.title = title
+        if cv:
+            new_version = CVVersion(user_cv_id=cv_id, html_content=new_html, parent_version_id=version.id)
+            db.add(new_version)
+            await db.flush()
+            cv.current_version_id = new_version.id
 
-        await emit_progress("Saving new CV version to database...")
-        new_version = CVVersion(user_cv_id=cv_id, html_content=new_html)
-        db.add(new_version)
         await db.commit()
 
         await emit_progress(f"Replace completed. Title: {title}")
@@ -181,11 +186,13 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         Use edit_cv only for complex structural changes that cannot be expressed as block replacement."""
 
         await emit_progress("Reading current CV HTML...")
+        cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
+        cv = cv_result.scalar_one_or_none()
+        if not cv or not cv.current_version_id:
+            return "No CV HTML found to edit."
+
         result = await db.execute(
-            select(CVVersion)
-            .where(CVVersion.user_cv_id == cv_id)
-            .order_by(CVVersion.created_at.desc())
-            .limit(1)
+            select(CVVersion).where(CVVersion.id == cv.current_version_id)
         )
         version = result.scalar_one_or_none()
         if not version:
@@ -215,15 +222,14 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         await emit_progress("Validating and extracting title...")
         title = _extract_title(new_html)
-        if title and title != "Untitled CV":
-            cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
-            cv = cv_result.scalar_one_or_none()
-            if cv:
-                cv.title = title
+        if cv and title and title != "Untitled CV":
+            cv.title = title
+        if cv:
+            new_version = CVVersion(user_cv_id=cv_id, html_content=new_html, parent_version_id=version.id)
+            db.add(new_version)
+            await db.flush()
+            cv.current_version_id = new_version.id
 
-        await emit_progress("Saving new CV version to database...")
-        new_version = CVVersion(user_cv_id=cv_id, html_content=new_html)
-        db.add(new_version)
         await db.commit()
 
         await emit_progress(f"CV saved successfully. Title: {title}")

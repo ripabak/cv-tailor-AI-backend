@@ -59,6 +59,9 @@ async def create_cv(
 
     version = CVVersion(user_cv_id=cv.id, html_content=template.html_code)
     db.add(version)
+    await db.flush()
+
+    cv.current_version_id = version.id
     await db.commit()
     await db.refresh(cv)
 
@@ -82,19 +85,20 @@ async def get_cv(
 ):
     result = await db.execute(
         select(UserCV)
-        .options(selectinload(UserCV.versions), selectinload(UserCV.template))
+        .options(selectinload(UserCV.versions), selectinload(UserCV.template), selectinload(UserCV.current_version))
         .where(UserCV.id == cv_id, UserCV.user_id == user.id)
     )
     cv = result.scalar_one_or_none()
     if not cv:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
 
-    latest_html = cv.versions[0].html_content if cv.versions else None
+    latest_html = cv.current_version.html_content if cv.current_version else None
     return CVDetailResponse(
         id=cv.id,
         user_id=cv.user_id,
         template_id=cv.template_id,
         title=cv.title,
+        current_version_id=cv.current_version_id,
         created_at=cv.created_at,
         updated_at=cv.updated_at,
         latest_html=latest_html,
@@ -164,9 +168,11 @@ async def revert_version(
     if not source_version:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Version not found")
 
-    new_version = CVVersion(user_cv_id=cv.id, html_content=source_version.html_content)
-    db.add(new_version)
+    cv.current_version_id = source_version.id
+    title = extract_title(source_version.html_content)
+    if title and title != "Untitled CV":
+        cv.title = title
     await db.commit()
-    await db.refresh(new_version)
+    await db.refresh(cv)
 
-    return CVVersionResponse.model_validate(new_version)
+    return CVVersionResponse.model_validate(source_version)

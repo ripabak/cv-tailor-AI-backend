@@ -49,6 +49,9 @@ class UserCV(Base):
         Integer, ForeignKey("template.id"), nullable=False
     )
     title: Mapped[str] = mapped_column(String, nullable=False)
+    current_version_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("cv_version.id"), nullable=True
+    )
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime, server_default=func.now()
     )
@@ -59,7 +62,11 @@ class UserCV(Base):
     user: Mapped["User"] = relationship(back_populates="cvs")
     template: Mapped["Template"] = relationship()
     versions: Mapped[list["CVVersion"]] = relationship(
-        back_populates="cv", cascade="all, delete-orphan", order_by="CVVersion.created_at.desc()"
+        back_populates="cv", cascade="all, delete-orphan", order_by="CVVersion.created_at.desc()",
+        foreign_keys="[CVVersion.user_cv_id]"
+    )
+    current_version: Mapped["CVVersion | None"] = relationship(
+        foreign_keys=[current_version_id], post_update=True
     )
 
 
@@ -71,8 +78,11 @@ class CVVersion(Base):
         Integer, ForeignKey("user_cv.id"), nullable=False
     )
     html_content: Mapped[str] = mapped_column(Text, nullable=False)
+    parent_version_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("cv_version.id"), nullable=True
+    )
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime, server_default=func.now()
     )
 
-    cv: Mapped["UserCV"] = relationship(back_populates="versions")
+    cv: Mapped["UserCV"] = relationship(back_populates="versions", foreign_keys=[user_cv_id])
