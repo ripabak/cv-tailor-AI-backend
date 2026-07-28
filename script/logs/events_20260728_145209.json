@@ -1,0 +1,1041 @@
+[
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225125101,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='9859862e-1325-4dfa-9a98-eb9a6c79d29d'"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 1
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127221,
+      "data": [
+        {
+          "event": "message-start",
+          "role": "ai",
+          "id": "lc_run--019fa7b5-9cee-7901-a53b-c009ae36dce0",
+          "metadata": {
+            "provider": "openrouter"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 2
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127221,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 0,
+          "content": {
+            "type": "reasoning",
+            "reasoning": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 3
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127221,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\n\nWe need to respond with the function call. We do not use vectors. Simple. We'll embed the"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 4
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127274,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " function call.\n\nWe should also answer in text. The function is used for weather. We'll do one function call."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 5
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127370,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 1,
+          "content": {
+            "type": "tool_call_chunk",
+            "id": "tooluse_yeGcP1j3EAY8uHmcvywiKA",
+            "name": "get_weather",
+            "args": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 6
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127370,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 1,
+          "delta": {
+            "type": "block-delta",
+            "fields": {
+              "type": "tool_call_chunk",
+              "id": "tooluse_yeGcP1j3EAY8uHmcvywiKA",
+              "name": "get_weather",
+              "args": "{\"city\":\"San Francisco\"}",
+              "index": 0
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 7
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127370,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 1,
+          "delta": {
+            "type": "block-delta",
+            "fields": {
+              "type": "tool_call_chunk",
+              "id": "tooluse_yeGcP1j3EAY8uHmcvywiKA",
+              "name": "get_weather",
+              "args": "{\"city\":\"San Francisco\"}",
+              "index": 0
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 8
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127402,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 0,
+          "content": {
+            "type": "reasoning",
+            "reasoning": "User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\n\nWe need to respond with the function call. We do not use vectors. Simple. We'll embed the function call.\n\nWe should also answer in text. The function is used for weather. We'll do one function call."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 9
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127402,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 1,
+          "content": {
+            "type": "tool_call",
+            "id": "tooluse_yeGcP1j3EAY8uHmcvywiKA",
+            "name": "get_weather",
+            "args": {
+              "city": "San Francisco"
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 10
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127402,
+      "data": [
+        {
+          "event": "message-finish",
+          "usage": {
+            "input_tokens": 133,
+            "output_tokens": 138,
+            "total_tokens": 271,
+            "input_token_details": {
+              "cache_creation": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "reasoning": 129
+            }
+          },
+          "metadata": {
+            "model_provider": "openrouter",
+            "finish_reason": "tool_calls",
+            "model_name": "openai/gpt-oss-20b",
+            "id": "gen-1785225125-iEt29A0X8vsOAjUNRDn6",
+            "created": 1785225125,
+            "object": "chat.completion.chunk",
+            "cost": 3.001e-05,
+            "cost_details": {
+              "upstream_inference_completions_cost": 2.07e-05,
+              "upstream_inference_prompt_cost": 9.31e-06,
+              "upstream_inference_cost": 3.001e-05
+            }
+          },
+          "additional_kwargs": {
+            "reasoning_content": "User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\n\nWe need to respond with the function call. We do not use vectors. Simple. We'll embed the function call.\n\nWe should also answer in text. The function is used for weather. We'll do one function call.",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "format": "unknownunknown",
+                "index": 0,
+                "text": "User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\n\nWe need to respond with the function call. We do not use vectors. Simple. We'll embed the function call.\n\nWe should also answer in text. The function is used for weather. We'll do one function call."
+              }
+            ]
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "checkpoint_ns": "model:f0449714-678a-7d0d-b947-c7088663aa91",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-9cee-7901-a53b-c009ae36dce0"
+        }
+      ]
+    },
+    "seq": 11
+  },
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127402,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='9859862e-1325-4dfa-9a98-eb9a6c79d29d'",
+          "content=[{'type': 'reasoning', 'reasoning': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.', 'index': 0}, {'type': 'tool_call', 'id': 'tooluse_yeGcP1j3EAY8uHmcvywiKA', 'name': 'get_weather', 'args': {'city': 'San Francisco'}}] additional_kwargs={'reasoning_content': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknown', 'index': 0, 'text': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'tool_calls', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225125-iEt29A0X8vsOAjUNRDn6', 'created': 1785225125, 'object': 'chat.completion.chunk', 'cost': 3.001e-05, 'cost_details': {'upstream_inference_completions_cost': 2.07e-05, 'upstream_inference_prompt_cost': 9.31e-06, 'upstream_inference_cost': 3.001e-05}, 'output_version': 'v1'} id='lc_run--019fa7b5-9cee-7901-a53b-c009ae36dce0' tool_calls=[{'name': 'get_weather', 'args': {'city': 'San Francisco'}, 'id': 'tooluse_yeGcP1j3EAY8uHmcvywiKA', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 133, 'output_tokens': 138, 'total_tokens': 271, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 129}}"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 12
+  },
+  {
+    "type": "event",
+    "method": "tools",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127403,
+      "data": {
+        "event": "tool-started",
+        "tool_call_id": "tooluse_yeGcP1j3EAY8uHmcvywiKA",
+        "tool_name": "get_weather",
+        "input": {
+          "city": "San Francisco"
+        }
+      }
+    },
+    "seq": 13
+  },
+  {
+    "type": "event",
+    "method": "tools",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127403,
+      "data": {
+        "event": "tool-finished",
+        "tool_call_id": "tooluse_yeGcP1j3EAY8uHmcvywiKA",
+        "output": "content=\"It's always sunny in San Francisco!\" name='get_weather' id='59f6de2e-7247-4a5f-ba79-62ce2448a453' tool_call_id='tooluse_yeGcP1j3EAY8uHmcvywiKA'"
+      }
+    },
+    "seq": 14
+  },
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225127403,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='9859862e-1325-4dfa-9a98-eb9a6c79d29d'",
+          "content=[{'type': 'reasoning', 'reasoning': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.', 'index': 0}, {'type': 'tool_call', 'id': 'tooluse_yeGcP1j3EAY8uHmcvywiKA', 'name': 'get_weather', 'args': {'city': 'San Francisco'}}] additional_kwargs={'reasoning_content': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknown', 'index': 0, 'text': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'tool_calls', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225125-iEt29A0X8vsOAjUNRDn6', 'created': 1785225125, 'object': 'chat.completion.chunk', 'cost': 3.001e-05, 'cost_details': {'upstream_inference_completions_cost': 2.07e-05, 'upstream_inference_prompt_cost': 9.31e-06, 'upstream_inference_cost': 3.001e-05}, 'output_version': 'v1'} id='lc_run--019fa7b5-9cee-7901-a53b-c009ae36dce0' tool_calls=[{'name': 'get_weather', 'args': {'city': 'San Francisco'}, 'id': 'tooluse_yeGcP1j3EAY8uHmcvywiKA', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 133, 'output_tokens': 138, 'total_tokens': 271, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 129}}",
+          "content=\"It's always sunny in San Francisco!\" name='get_weather' id='59f6de2e-7247-4a5f-ba79-62ce2448a453' tool_call_id='tooluse_yeGcP1j3EAY8uHmcvywiKA'"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 15
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128679,
+      "data": [
+        {
+          "event": "message-start",
+          "role": "ai",
+          "id": "lc_run--019fa7b5-a5ec-7c53-99bd-653684672ced",
+          "metadata": {
+            "provider": "openrouter"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 16
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128680,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 0,
+          "content": {
+            "type": "reasoning",
+            "reasoning": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 17
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128680,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\n\nWe need to include weather and explain who Prabowo is. The user didn't specify language. Provide English.\n\nAlso we need"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 18
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128901,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " to incorporate function result. \"It's always sunny in San Francisco!\"\n\nOk."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 19
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128913,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 1,
+          "content": {
+            "type": "text",
+            "text": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 20
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128913,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 1,
+          "delta": {
+            "type": "text-delta",
+            "text": "**Weather in San\u202fFrancisco (SF)**  \nIt\u2019s always sunny in San\u202fFrancisco! \u2600\ufe0f\n\n**Who is Prabowo?**  \nPrabowo\u202fSubianto is an Indonesian politician and former army general. He has been a prominent figure in Indonesia\u2019s political landscape for decades, serving as a member of parliament, minister of defense, and multiple times as the presidential candidate (2014 and 2019)."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 21
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225128973,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 1,
+          "delta": {
+            "type": "text-delta",
+            "text": " As of 2024, he remains a key opposition leader and a central figure in Indonesia\u2019s democratic process."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 22
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225129006,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 0,
+          "content": {
+            "type": "reasoning",
+            "reasoning": "The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\n\nWe need to include weather and explain who Prabowo is. The user didn't specify language. Provide English.\n\nAlso we need to incorporate function result. \"It's always sunny in San Francisco!\"\n\nOk."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 23
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225129006,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 1,
+          "content": {
+            "type": "text",
+            "text": "**Weather in San\u202fFrancisco (SF)**  \nIt\u2019s always sunny in San\u202fFrancisco! \u2600\ufe0f\n\n**Who is Prabowo?**  \nPrabowo\u202fSubianto is an Indonesian politician and former army general. He has been a prominent figure in Indonesia\u2019s political landscape for decades, serving as a member of parliament, minister of defense, and multiple times as the presidential candidate (2014 and 2019). As of 2024, he remains a key opposition leader and a central figure in Indonesia\u2019s democratic process."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 24
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225129006,
+      "data": [
+        {
+          "event": "message-finish",
+          "usage": {
+            "input_tokens": 175,
+            "output_tokens": 228,
+            "total_tokens": 403,
+            "input_token_details": {
+              "cache_creation": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "reasoning": 123
+            }
+          },
+          "metadata": {
+            "model_provider": "openrouter",
+            "finish_reason": "stop",
+            "model_name": "openai/gpt-oss-20b",
+            "id": "gen-1785225127-AyobXYuXqKw574g1nOEl",
+            "created": 1785225127,
+            "object": "chat.completion.chunk",
+            "cost": 4.645e-05,
+            "cost_details": {
+              "upstream_inference_completions_cost": 3.42e-05,
+              "upstream_inference_prompt_cost": 1.225e-05,
+              "upstream_inference_cost": 4.645e-05
+            }
+          },
+          "additional_kwargs": {
+            "reasoning_content": "The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\n\nWe need to include weather and explain who Prabowo is. The user didn't specify language. Provide English.\n\nAlso we need to incorporate function result. \"It's always sunny in San Francisco!\"\n\nOk.",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "format": "unknownunknown",
+                "index": 0,
+                "text": "The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\n\nWe need to include weather and explain who Prabowo is. The user didn't specify language. Provide English.\n\nAlso we need to incorporate function result. \"It's always sunny in San Francisco!\"\n\nOk."
+              }
+            ]
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "checkpoint_ns": "model:f5941954-eed3-6ab0-b476-a9b6b5d94137",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7b5-a5ec-7c53-99bd-653684672ced"
+        }
+      ]
+    },
+    "seq": 25
+  },
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225129007,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='9859862e-1325-4dfa-9a98-eb9a6c79d29d'",
+          "content=[{'type': 'reasoning', 'reasoning': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.', 'index': 0}, {'type': 'tool_call', 'id': 'tooluse_yeGcP1j3EAY8uHmcvywiKA', 'name': 'get_weather', 'args': {'city': 'San Francisco'}}] additional_kwargs={'reasoning_content': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknown', 'index': 0, 'text': 'User asks two separate questions: \"What is the weather in SF?\" which likely wants real-time weather. We have a function get_weather. We can call it for SF. Also asks \"who is Prabowo?\" Which is about Prabowo Subianto, Indonesian politician. Provide answer. We should respond and also call function get_weather.\\n\\nWe need to respond with the function call. We do not use vectors. Simple. We\\'ll embed the function call.\\n\\nWe should also answer in text. The function is used for weather. We\\'ll do one function call.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'tool_calls', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225125-iEt29A0X8vsOAjUNRDn6', 'created': 1785225125, 'object': 'chat.completion.chunk', 'cost': 3.001e-05, 'cost_details': {'upstream_inference_completions_cost': 2.07e-05, 'upstream_inference_prompt_cost': 9.31e-06, 'upstream_inference_cost': 3.001e-05}, 'output_version': 'v1'} id='lc_run--019fa7b5-9cee-7901-a53b-c009ae36dce0' tool_calls=[{'name': 'get_weather', 'args': {'city': 'San Francisco'}, 'id': 'tooluse_yeGcP1j3EAY8uHmcvywiKA', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 133, 'output_tokens': 138, 'total_tokens': 271, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 129}}",
+          "content=\"It's always sunny in San Francisco!\" name='get_weather' id='59f6de2e-7247-4a5f-ba79-62ce2448a453' tool_call_id='tooluse_yeGcP1j3EAY8uHmcvywiKA'",
+          "content=[{'type': 'reasoning', 'reasoning': 'The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\\n\\nWe need to include weather and explain who Prabowo is. The user didn\\'t specify language. Provide English.\\n\\nAlso we need to incorporate function result. \"It\\'s always sunny in San Francisco!\"\\n\\nOk.', 'index': 0}, {'type': 'text', 'text': '**Weather in San\\u202fFrancisco (SF)**  \\nIt\u2019s always sunny in San\\u202fFrancisco! \u2600\ufe0f\\n\\n**Who is Prabowo?**  \\nPrabowo\\u202fSubianto is an Indonesian politician and former army general. He has been a prominent figure in Indonesia\u2019s political landscape for decades, serving as a member of parliament, minister of defense, and multiple times as the presidential candidate (2014 and 2019). As of 2024, he remains a key opposition leader and a central figure in Indonesia\u2019s democratic process.', 'index': 1}] additional_kwargs={'reasoning_content': 'The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\\n\\nWe need to include weather and explain who Prabowo is. The user didn\\'t specify language. Provide English.\\n\\nAlso we need to incorporate function result. \"It\\'s always sunny in San Francisco!\"\\n\\nOk.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknown', 'index': 0, 'text': 'The user asked: \"What is the weather in SF?, and who is prabowo?\" We have weather from function. Now need to respond with weather and about Prabowo. Prabowo likely refers to Prabowo Subianto, Indonesian politician, former army general, presidential candidate, etc. Provide concise answer.\\n\\nWe need to include weather and explain who Prabowo is. The user didn\\'t specify language. Provide English.\\n\\nAlso we need to incorporate function result. \"It\\'s always sunny in San Francisco!\"\\n\\nOk.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'stop', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225127-AyobXYuXqKw574g1nOEl', 'created': 1785225127, 'object': 'chat.completion.chunk', 'cost': 4.645e-05, 'cost_details': {'upstream_inference_completions_cost': 3.42e-05, 'upstream_inference_prompt_cost': 1.225e-05, 'upstream_inference_cost': 4.645e-05}, 'output_version': 'v1'} id='lc_run--019fa7b5-a5ec-7c53-99bd-653684672ced' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 175, 'output_tokens': 228, 'total_tokens': 403, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 123}}"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 26
+  }
+]

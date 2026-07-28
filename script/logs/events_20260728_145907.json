@@ -1,0 +1,6147 @@
+[
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225540719,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='89dcf1b8-315c-4b92-942f-5aadfd779d38'"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 1
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541935,
+      "data": [
+        {
+          "event": "message-start",
+          "role": "ai",
+          "id": "lc_run--019fa7bb-f471-7731-8fd3-3908b2fa185e",
+          "metadata": {
+            "provider": "openrouter"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 2
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541935,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 0,
+          "content": {
+            "type": "reasoning",
+            "reasoning": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 3
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541935,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "User"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 4
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541961,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " asks"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 5
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541975,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " two"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 6
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541977,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " questions"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 7
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225541997,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": ":"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 8
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542037,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " weather"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 9
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542037,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " in"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 10
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542049,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " SF"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 11
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542049,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": ","
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 12
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542083,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " and"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 13
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542136,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " who"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 14
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542136,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " is"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 15
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542141,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " Pr"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 16
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542141,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "ab"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 17
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542145,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "owo"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 18
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542147,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 19
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542150,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " Use"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 20
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542165,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " function"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 21
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542177,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " to"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 22
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542183,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " get"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 23
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542204,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " weather"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 24
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542223,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 25
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542241,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " Then"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 26
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542246,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " answer"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 27
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542256,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " regarding"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 28
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542284,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " Pr"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 29
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542314,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "ab"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 30
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542320,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "owo"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 31
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542341,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 32
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542355,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " Provide"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 33
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542357,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " concise"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 34
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542368,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " answer"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 35
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542384,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 36
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542396,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " Use"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 37
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542406,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " function"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 38
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542423,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": " call"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 39
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542435,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "reasoning-delta",
+            "reasoning": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 40
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542754,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 1,
+          "content": {
+            "type": "tool_call_chunk",
+            "id": "chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3",
+            "name": "get_weather",
+            "args": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 41
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542754,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 1,
+          "delta": {
+            "type": "block-delta",
+            "fields": {
+              "type": "tool_call_chunk",
+              "id": "chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3",
+              "name": "get_weather",
+              "args": "{\"city\":\"San Francisco\"}",
+              "index": 0
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 42
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542754,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 1,
+          "delta": {
+            "type": "block-delta",
+            "fields": {
+              "type": "tool_call_chunk",
+              "id": "chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3",
+              "name": "get_weather",
+              "args": "{\"city\":\"San Francisco\"}",
+              "index": 0
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 43
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542759,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 0,
+          "content": {
+            "type": "reasoning",
+            "reasoning": "User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 44
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542759,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 1,
+          "content": {
+            "type": "tool_call",
+            "id": "chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3",
+            "name": "get_weather",
+            "args": {
+              "city": "San Francisco"
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 45
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542759,
+      "data": [
+        {
+          "event": "message-finish",
+          "usage": {
+            "input_tokens": 122,
+            "output_tokens": 61,
+            "total_tokens": 183,
+            "input_token_details": {
+              "cache_creation": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "reasoning": 41
+            }
+          },
+          "metadata": {
+            "model_provider": "openrouter",
+            "finish_reason": "tool_calls",
+            "model_name": "openai/gpt-oss-20b",
+            "id": "gen-1785225541-Ao6td7qOlWhSeGdu4IfR",
+            "created": 1785225541,
+            "object": "chat.completion.chunk",
+            "cost": 1.22e-05,
+            "cost_details": {
+              "upstream_inference_completions_cost": 8.54e-06,
+              "upstream_inference_prompt_cost": 3.66e-06,
+              "upstream_inference_cost": 1.22e-05
+            }
+          },
+          "additional_kwargs": {
+            "reasoning_content": "User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "format": "unknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknown",
+                "index": 0,
+                "text": "User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call."
+              }
+            ]
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 1,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "checkpoint_ns": "model:e114fcf8-c14f-1b63-5878-5765753cef57",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-f471-7731-8fd3-3908b2fa185e"
+        }
+      ]
+    },
+    "seq": 46
+  },
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542759,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='89dcf1b8-315c-4b92-942f-5aadfd779d38'",
+          "content=[{'type': 'reasoning', 'reasoning': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.', 'index': 0}, {'type': 'tool_call', 'id': 'chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3', 'name': 'get_weather', 'args': {'city': 'San Francisco'}}] additional_kwargs={'reasoning_content': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknown', 'index': 0, 'text': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'tool_calls', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225541-Ao6td7qOlWhSeGdu4IfR', 'created': 1785225541, 'object': 'chat.completion.chunk', 'cost': 1.22e-05, 'cost_details': {'upstream_inference_completions_cost': 8.54e-06, 'upstream_inference_prompt_cost': 3.66e-06, 'upstream_inference_cost': 1.22e-05}, 'output_version': 'v1'} id='lc_run--019fa7bb-f471-7731-8fd3-3908b2fa185e' tool_calls=[{'name': 'get_weather', 'args': {'city': 'San Francisco'}, 'id': 'chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 122, 'output_tokens': 61, 'total_tokens': 183, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 41}}"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 47
+  },
+  {
+    "type": "event",
+    "method": "tools",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542761,
+      "data": {
+        "event": "tool-started",
+        "tool_call_id": "chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3",
+        "tool_name": "get_weather",
+        "input": {
+          "city": "San Francisco"
+        }
+      }
+    },
+    "seq": 48
+  },
+  {
+    "type": "event",
+    "method": "tools",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542761,
+      "data": {
+        "event": "tool-finished",
+        "tool_call_id": "chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3",
+        "output": "content=\"It's always sunny in San Francisco!\" name='get_weather' id='df6c614b-8514-4e35-b637-ea8903dc7b34' tool_call_id='chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3'"
+      }
+    },
+    "seq": 49
+  },
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225542762,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='89dcf1b8-315c-4b92-942f-5aadfd779d38'",
+          "content=[{'type': 'reasoning', 'reasoning': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.', 'index': 0}, {'type': 'tool_call', 'id': 'chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3', 'name': 'get_weather', 'args': {'city': 'San Francisco'}}] additional_kwargs={'reasoning_content': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknown', 'index': 0, 'text': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'tool_calls', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225541-Ao6td7qOlWhSeGdu4IfR', 'created': 1785225541, 'object': 'chat.completion.chunk', 'cost': 1.22e-05, 'cost_details': {'upstream_inference_completions_cost': 8.54e-06, 'upstream_inference_prompt_cost': 3.66e-06, 'upstream_inference_cost': 1.22e-05}, 'output_version': 'v1'} id='lc_run--019fa7bb-f471-7731-8fd3-3908b2fa185e' tool_calls=[{'name': 'get_weather', 'args': {'city': 'San Francisco'}, 'id': 'chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 122, 'output_tokens': 61, 'total_tokens': 183, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 41}}",
+          "content=\"It's always sunny in San Francisco!\" name='get_weather' id='df6c614b-8514-4e35-b637-ea8903dc7b34' tool_call_id='chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3'"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 50
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543679,
+      "data": [
+        {
+          "event": "message-start",
+          "role": "ai",
+          "id": "lc_run--019fa7bb-fc6a-78d2-adbc-ff98b75b9441",
+          "metadata": {
+            "provider": "openrouter"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 51
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543679,
+      "data": [
+        {
+          "event": "content-block-start",
+          "index": 0,
+          "content": {
+            "type": "text",
+            "text": ""
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 52
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543679,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "**"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 53
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543697,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "Weather"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 54
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543701,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " in"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 55
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543715,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " San"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 56
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543733,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "\u202f"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 57
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543798,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "Franc"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 58
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543807,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "isco"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 59
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543826,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " ("
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 60
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225543888,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "present"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 61
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544030,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " moment"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 62
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544041,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "):"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 63
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544041,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "**"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 64
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544052,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "  \n"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 65
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544055,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "It"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 66
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544073,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "\u2019s"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 67
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544078,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " always"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 68
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544122,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " sunny"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 69
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544126,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": ".\n\n"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 70
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544806,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "**"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 71
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544806,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "Who"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 72
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544828,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " is"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 73
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544844,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Pr"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 74
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544883,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "ab"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 75
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544884,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "owo"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 76
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544915,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "?"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 77
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544938,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "**"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 78
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225544970,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "  \n"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 79
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545007,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "Pr"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 80
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545047,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "ab"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 81
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545068,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "owo"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 82
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545089,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Sub"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 83
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545119,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "i"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 84
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545152,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "anto"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 85
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545198,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " is"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 86
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545221,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " an"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 87
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545251,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Indonesian"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 88
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545299,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " politician"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 89
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545322,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " and"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 90
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545339,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " former"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 91
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545357,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " army"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 92
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545381,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " general"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 93
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545393,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 94
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545400,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " He"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 95
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545407,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " has"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 96
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545420,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " served"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 97
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545428,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " as"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 98
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545429,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " the"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 99
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545451,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " head"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 100
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545481,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " of"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 101
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545495,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " the"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 102
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545523,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Indonesian"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 103
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545533,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " National"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 104
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545546,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Armed"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 105
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545601,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Forces"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 106
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545631,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " and"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 107
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545648,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " was"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 108
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545650,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " a"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 109
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545660,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " presidential"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 110
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545665,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " candidate"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 111
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545716,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " in"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 112
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545734,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " the"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 113
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545766,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " "
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 114
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545789,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "201"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 115
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545850,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "4"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 116
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545872,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " and"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 117
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545889,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " "
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 118
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545902,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "201"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 119
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225545993,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "9"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 120
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546004,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " elections"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 121
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546018,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 122
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546022,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " He"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 123
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546040,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " currently"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 124
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546051,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " holds"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 125
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546076,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " the"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 126
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546090,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " post"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 127
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546099,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " of"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 128
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546106,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Minister"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 129
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546124,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " of"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 130
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546167,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Defense"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 131
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546173,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " and"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 132
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546218,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " is"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 133
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546248,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " a"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 134
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546282,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " prominent"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 135
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546306,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " figure"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 136
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546428,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " in"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 137
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546466,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " Indonesia"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 138
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546493,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "\u2019s"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 139
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225546524,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " political"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 140
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225547760,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": " scene"
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 141
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225547763,
+      "data": [
+        {
+          "event": "content-block-delta",
+          "index": 0,
+          "delta": {
+            "type": "text-delta",
+            "text": "."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 142
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225547855,
+      "data": [
+        {
+          "event": "content-block-finish",
+          "index": 0,
+          "content": {
+            "type": "text",
+            "text": "**Weather in San\u202fFrancisco (present moment):**  \nIt\u2019s always sunny.\n\n**Who is Prabowo?**  \nPrabowo Subianto is an Indonesian politician and former army general. He has served as the head of the Indonesian National Armed Forces and was a presidential candidate in the 2014 and 2019 elections. He currently holds the post of Minister of Defense and is a prominent figure in Indonesia\u2019s political scene."
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 143
+  },
+  {
+    "type": "event",
+    "method": "messages",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225547855,
+      "data": [
+        {
+          "event": "message-finish",
+          "usage": {
+            "input_tokens": 204,
+            "output_tokens": 94,
+            "total_tokens": 298,
+            "input_token_details": {
+              "cache_creation": 0,
+              "cache_read": 0
+            },
+            "output_token_details": {
+              "reasoning": 0
+            }
+          },
+          "metadata": {
+            "model_provider": "openrouter",
+            "finish_reason": "stop",
+            "model_name": "openai/gpt-oss-20b",
+            "id": "gen-1785225543-NkrUgY2syJCzIQvlF3PG",
+            "created": 1785225543,
+            "object": "chat.completion.chunk",
+            "cost": 1.928e-05,
+            "cost_details": {
+              "upstream_inference_completions_cost": 1.316e-05,
+              "upstream_inference_prompt_cost": 6.12e-06,
+              "upstream_inference_cost": 1.928e-05
+            }
+          }
+        },
+        {
+          "ls_integration": "langchain_chat_model",
+          "langgraph_step": 3,
+          "langgraph_node": "model",
+          "langgraph_triggers": [
+            "branch:to:model"
+          ],
+          "langgraph_path": [
+            "__pregel_pull",
+            "model"
+          ],
+          "langgraph_checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "checkpoint_ns": "model:57c8f588-67c6-e233-70e6-0e92471a1748",
+          "ls_provider": "openrouter",
+          "ls_model_name": "openai/gpt-oss-20b",
+          "ls_model_type": "chat",
+          "ls_temperature": null,
+          "lc_versions": {
+            "langchain-core": "1.5.0",
+            "langchain": "1.3.14",
+            "langchain-openrouter": "0.2.7"
+          },
+          "run_id": "019fa7bb-fc6a-78d2-adbc-ff98b75b9441"
+        }
+      ]
+    },
+    "seq": 144
+  },
+  {
+    "type": "event",
+    "method": "values",
+    "params": {
+      "namespace": [],
+      "timestamp": 1785225547856,
+      "data": {
+        "messages": [
+          "content='What is the weather in SF?, and who is prabowo?' additional_kwargs={} response_metadata={} id='89dcf1b8-315c-4b92-942f-5aadfd779d38'",
+          "content=[{'type': 'reasoning', 'reasoning': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.', 'index': 0}, {'type': 'tool_call', 'id': 'chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3', 'name': 'get_weather', 'args': {'city': 'San Francisco'}}] additional_kwargs={'reasoning_content': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.', 'reasoning_details': [{'type': 'reasoning.text', 'format': 'unknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknownunknown', 'index': 0, 'text': 'User asks two questions: weather in SF, and who is Prabowo. Use function to get weather. Then answer regarding Prabowo. Provide concise answer. Use function call.'}]} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'tool_calls', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225541-Ao6td7qOlWhSeGdu4IfR', 'created': 1785225541, 'object': 'chat.completion.chunk', 'cost': 1.22e-05, 'cost_details': {'upstream_inference_completions_cost': 8.54e-06, 'upstream_inference_prompt_cost': 3.66e-06, 'upstream_inference_cost': 1.22e-05}, 'output_version': 'v1'} id='lc_run--019fa7bb-f471-7731-8fd3-3908b2fa185e' tool_calls=[{'name': 'get_weather', 'args': {'city': 'San Francisco'}, 'id': 'chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 122, 'output_tokens': 61, 'total_tokens': 183, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 41}}",
+          "content=\"It's always sunny in San Francisco!\" name='get_weather' id='df6c614b-8514-4e35-b637-ea8903dc7b34' tool_call_id='chatcmpl-tool-f2cd485de7e346c9b3fcd3793ecb0ae3'",
+          "content=[{'type': 'text', 'text': '**Weather in San\\u202fFrancisco (present moment):**  \\nIt\u2019s always sunny.\\n\\n**Who is Prabowo?**  \\nPrabowo Subianto is an Indonesian politician and former army general. He has served as the head of the Indonesian National Armed Forces and was a presidential candidate in the 2014 and 2019 elections. He currently holds the post of Minister of Defense and is a prominent figure in Indonesia\u2019s political scene.', 'index': 0}] additional_kwargs={} response_metadata={'model_provider': 'openrouter', 'finish_reason': 'stop', 'model_name': 'openai/gpt-oss-20b', 'id': 'gen-1785225543-NkrUgY2syJCzIQvlF3PG', 'created': 1785225543, 'object': 'chat.completion.chunk', 'cost': 1.928e-05, 'cost_details': {'upstream_inference_completions_cost': 1.316e-05, 'upstream_inference_prompt_cost': 6.12e-06, 'upstream_inference_cost': 1.928e-05}, 'output_version': 'v1'} id='lc_run--019fa7bb-fc6a-78d2-adbc-ff98b75b9441' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 204, 'output_tokens': 94, 'total_tokens': 298, 'input_token_details': {'cache_creation': 0, 'cache_read': 0}, 'output_token_details': {'reasoning': 0}}"
+        ]
+      },
+      "interrupts": []
+    },
+    "seq": 145
+  }
+]

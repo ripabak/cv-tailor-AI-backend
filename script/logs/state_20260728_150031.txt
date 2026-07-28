@@ -1,0 +1,18 @@
+[0] === HumanMessage ===
+What is the weather in SF?, and who is prabowo?
+
+[1] === AIMessage ===
+  [reasoning] We have a multitask query: "What is the weather in SF?" and "who is Prabowo?" There's a function to get weather for a city. We should call get_weather for SF. Then answer about Prabowo. Likely an Indonesian political figure. Should provide info. Because the user wants both. We need to call function.
+  Tool: get_weather({'city': 'SF'})
+
+[2] === ToolMessage ===
+It's always sunny in SF!
+
+[3] === AIMessage ===
+**Weather in San Francisco (SF):**  
+🌤️ It's always sunny in SF!
+
+---
+
+**Who is Prabowo?**  
+Prabowo Subianto is an Indonesian politician and former military general. He has been a prominent figure in Indonesian politics for decades, running for the presidency in 2014 and 2019. He founded the Great Indonesia Unity Party (Partai Persatuan Indonesia, PPP), and later led the Indonesian Solidarity Party (Partai Solidaritas Indonesia, PSI). Known for his strong nationalist stance and controversial past, Prabowo has been both a contender and a critic within the country's political landscape.

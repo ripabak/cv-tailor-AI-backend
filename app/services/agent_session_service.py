@@ -68,11 +68,10 @@ def stop_agent_run(thread_id: str):
         session._task.cancel()
 
 
-def _make_event(method: str, data, namespace: list[str] | None = None) -> dict:
+def _make_event(method: str, data) -> dict:
     return {
         "method": method,
         "params": {
-            "namespace": namespace or [],
             "data": data,
         },
     }
@@ -99,15 +98,14 @@ async def start_agent_run(
                 version="v3",
             )
 
-            session.buffer_event(_make_event("lifecycle", {"event": "running", "graph_name": "cv_agent"}))
+            session.buffer_event(_make_event("lifecycle", {"event": "running"}))
 
-            pending_tcs: list[dict] = []
             current_msg_id: str | None = None
+            _last_tool_call_id: str = ""
 
             def _on_tool_progress(message: str):
-                tc_id = pending_tcs[0]["id"] if pending_tcs else ""
                 session.buffer_event(_make_event("tool_progress", {
-                    "tool_call_id": tc_id,
+                    "tool_call_id": _last_tool_call_id,
                     "message": message,
                 }))
 
@@ -127,44 +125,23 @@ async def start_agent_run(
                     if ev_type == "message-start":
                         current_msg_id = str(uuid.uuid4())
                         session.buffer_event(_make_event("message_start", {
-                            "id": current_msg_id, "node": "agent",
+                            "id": current_msg_id, "role": "assistant",
                         }))
 
                     elif ev_type == "content-block-delta":
                         delta = msg_event.get("delta", {})
                         if not current_msg_id:
                             continue
-                        if delta.get("type") == "text-delta" and delta.get("text"):
-                            session.buffer_event(_make_event("text_delta", {
-                                "id": current_msg_id, "delta": delta["text"], "kind": "text",
-                            }))
-                        elif delta.get("type") == "reasoning-delta" and delta.get("reasoning"):
+                        if delta.get("type") == "reasoning-delta" and delta.get("reasoning"):
                             session.buffer_event(_make_event("text_delta", {
                                 "id": current_msg_id, "delta": delta["reasoning"], "kind": "reasoning",
                             }))
-
-                    elif ev_type == "content-block-finish":
-                        content = msg_event.get("content", {})
-                        if content.get("type") == "tool_call":
-                            pending_tcs.append({
-                                "id": content.get("id", str(uuid.uuid4())),
-                                "name": content.get("name", ""),
-                                "args": content.get("args", {}),
-                            })
+                        elif delta.get("type") == "text-delta" and delta.get("text"):
+                            session.buffer_event(_make_event("text_delta", {
+                                "id": current_msg_id, "delta": delta["text"], "kind": "text",
+                            }))
 
                     elif ev_type == "message-finish":
-                        if pending_tcs:
-                            tcs = [{"id": tc["id"], "name": tc["name"], "args": tc["args"], "type": "tool_call"} for tc in pending_tcs]
-                            session.buffer_event(_make_event("tool_calls_done", {
-                                "id": current_msg_id,
-                                "tool_calls": tcs,
-                            }))
-                            for tc in tcs:
-                                session.buffer_event(_make_event("tool_start", {
-                                    "tool_call_id": tc["id"],
-                                    "name": tc["name"],
-                                    "args": tc["args"],
-                                }))
                         if current_msg_id:
                             session.buffer_event(_make_event("message_end", {"id": current_msg_id}))
 
@@ -172,37 +149,32 @@ async def start_agent_run(
                     ev_type = raw_data.get("event", "")
 
                     if ev_type == "tool-started":
-                        pass  # tool_start already emitted from message-finish
+                        _last_tool_call_id = raw_data.get("tool_call_id", "")
+                        session.buffer_event(_make_event("tool_start", {
+                            "tool_call_id": _last_tool_call_id,
+                            "name": raw_data.get("tool_name", ""),
+                            "args": raw_data.get("input", {}),
+                        }))
 
                     elif ev_type == "tool-finished":
-                        if pending_tcs:
-                            tc = pending_tcs.pop(0)
-                            output = raw_data.get("output", "")
-                            session.buffer_event(_make_event("tool_end", {
-                                "tool_call_id": tc["id"],
-                                "output": str(output) if output else "",
-                                "error": None,
-                            }))
+                        tc_id = raw_data.get("tool_call_id", "")
+                        output = raw_data.get("output", "")
+                        session.buffer_event(_make_event("tool_end", {
+                            "tool_call_id": tc_id,
+                            "output": str(output) if output else "",
+                            "error": None,
+                        }))
 
-            for tc in pending_tcs:
-                session.buffer_event(_make_event("tool_end", {
-                    "tool_call_id": tc["id"],
-                    "output": "",
-                    "error": None,
-                }))
-
-            session.buffer_event(_make_event("lifecycle", {"event": "completed", "graph_name": "cv_agent"}))
+            session.buffer_event(_make_event("lifecycle", {"event": "completed"}))
 
         except asyncio.CancelledError:
             session.buffer_event(_make_event("lifecycle", {
                 "event": "cancelled",
-                "graph_name": "cv_agent",
             }))
         except Exception as e:
             session.buffer_event(_make_event("lifecycle", {
                 "event": "failed",
                 "error": str(e),
-                "graph_name": "cv_agent",
             }))
         finally:
             reset_progress_emitter(token)

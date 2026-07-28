@@ -18,8 +18,10 @@ agent = create_agent(
     tools=[get_weather],
 )
 
+user_input = input("Enter your message: ")
+
 for snapshot in agent.stream_events(
-    {"messages": [HumanMessage(content="What's the weather in New York?")]},
+    {"messages": [HumanMessage(content=user_input)]},
     version="v3",
 ).values:
     latest = snapshot["messages"][-1]
