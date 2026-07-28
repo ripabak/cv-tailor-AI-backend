@@ -53,8 +53,8 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
             await emit_progress("No existing CV HTML found.")
             return "No CV HTML found."
 
-        await emit_progress(f"Loaded CV HTML ({len(version.html_content)} chars)")
-        return f"[CV Title: {cv.title}]\n\n{version.html_content}"
+        await emit_progress(f"Loaded CV HTML ({len(version.html_content)} chars), title: {cv.title}")
+        return f"=== CV TITLE: {cv.title} ===\n\n{version.html_content}"
 
     @tool
     async def cv_replace(old_content: str, new_content: str) -> str:
