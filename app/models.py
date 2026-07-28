@@ -52,6 +52,8 @@ class UserCV(Base):
     current_version_id: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("cv_version.id"), nullable=True
     )
+    is_published: Mapped[bool] = mapped_column(Boolean, default=False)
+    public_slug: Mapped[str | None] = mapped_column(String, unique=True, nullable=True)
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime, server_default=func.now()
     )

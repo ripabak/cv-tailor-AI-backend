@@ -1,17 +1,23 @@
 import math
 import re
+import secrets
+import string
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import func, select
-from sqlalchemy.orm import selectinload
+from sqlalchemy.orm import selectinload, joinedload
 
 from ..database import get_db
 from ..models import User, UserCV, CVVersion, Template
 from ..schemas import (
     CVCreate, CVResponse, CVDetailResponse, PaginatedCVResponse,
-    CVVersionResponse,
+    CVVersionResponse, PublishResponse, CVPublicResponse,
 )
 from ..auth import get_current_user
+
+
+def generate_slug(length: int = 8) -> str:
+    return ''.join(secrets.choice(string.ascii_lowercase + string.digits) for _ in range(length))
 
 router = APIRouter(prefix="/api/cv", tags=["cv"])
 
@@ -60,6 +66,8 @@ async def list_cvs(
             title=cv.title,
             current_version_id=cv.current_version_id,
             latest_html=latest_html,
+            is_published=cv.is_published,
+            public_slug=cv.public_slug,
             created_at=cv.created_at,
             updated_at=cv.updated_at,
         ))
@@ -141,6 +149,8 @@ async def get_cv(
         created_at=cv.created_at,
         updated_at=cv.updated_at,
         latest_html=latest_html,
+        is_published=cv.is_published,
+        public_slug=cv.public_slug,
         template_title=cv.template.title if cv.template else None,
     )
 
@@ -215,3 +225,77 @@ async def revert_version(
     await db.refresh(cv)
 
     return CVVersionResponse.model_validate(source_version)
+
+
+@router.post("/{cv_id}/publish", response_model=PublishResponse)
+async def publish_cv(
+    cv_id: int,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(UserCV).where(UserCV.id == cv_id, UserCV.user_id == user.id)
+    )
+    cv = result.scalar_one_or_none()
+    if not cv:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    slug = generate_slug()
+    for _ in range(10):
+        existing = await db.execute(select(UserCV).where(UserCV.public_slug == slug))
+        if not existing.scalar_one_or_none():
+            break
+        slug = generate_slug()
+    else:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to generate unique slug")
+
+    cv.is_published = True
+    cv.public_slug = slug
+    await db.commit()
+
+    return PublishResponse(slug=slug, url=f"/cv/{slug}")
+
+
+@router.post("/{cv_id}/unpublish")
+async def unpublish_cv(
+    cv_id: int,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(UserCV).where(UserCV.id == cv_id, UserCV.user_id == user.id)
+    )
+    cv = result.scalar_one_or_none()
+    if not cv:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    cv.is_published = False
+    cv.public_slug = None
+    await db.commit()
+
+    return {"ok": True}
+
+
+@router.get("/p/{slug}", response_model=CVPublicResponse)
+async def view_public_cv(
+    slug: str,
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(UserCV)
+        .options(joinedload(UserCV.user), joinedload(UserCV.current_version), joinedload(UserCV.template))
+        .where(UserCV.public_slug == slug, UserCV.is_published == True)
+    )
+    cv = result.scalar_one_or_none()
+    if not cv:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    latest_html = cv.current_version.html_content if cv.current_version else (
+        cv.template.html_code if cv.template else ""
+    )
+
+    return CVPublicResponse(
+        title=cv.title,
+        latest_html=latest_html,
+        display_name=cv.user.display_name if cv.user else "Unknown",
+    )

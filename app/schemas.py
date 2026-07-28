@@ -49,6 +49,8 @@ class CVResponse(BaseModel):
     title: str
     current_version_id: int | None = None
     latest_html: str | None = None
+    is_published: bool = False
+    public_slug: str | None = None
     created_at: datetime.datetime
     updated_at: datetime.datetime
 
@@ -83,3 +85,14 @@ class PaginatedTemplateResponse(BaseModel):
     page: int
     page_size: int
     total_pages: int
+
+
+class PublishResponse(BaseModel):
+    slug: str
+    url: str
+
+
+class CVPublicResponse(BaseModel):
+    title: str
+    latest_html: str
+    display_name: str
