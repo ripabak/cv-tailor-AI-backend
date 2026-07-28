@@ -16,4 +16,5 @@ dependencies = [
     "langchain>=0.3",
     "langchain-openrouter",
     "python-dotenv>=1.0",
+    "alembic>=1.18.5",
 ]

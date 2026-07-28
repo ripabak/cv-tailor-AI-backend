@@ -48,14 +48,22 @@ class CVResponse(BaseModel):
     template_id: int
     title: str
     current_version_id: int | None = None
+    latest_html: str | None = None
     created_at: datetime.datetime
     updated_at: datetime.datetime
 
     model_config = {"from_attributes": True}
 
 
+class PaginatedCVResponse(BaseModel):
+    items: list[CVResponse]
+    total: int
+    page: int
+    page_size: int
+    total_pages: int
+
+
 class CVDetailResponse(CVResponse):
-    latest_html: str | None = None
     template_title: str | None = None
 
 
@@ -67,3 +75,11 @@ class CVVersionResponse(BaseModel):
     created_at: datetime.datetime
 
     model_config = {"from_attributes": True}
+
+
+class PaginatedTemplateResponse(BaseModel):
+    items: list[TemplateResponse]
+    total: int
+    page: int
+    page_size: int
+    total_pages: int

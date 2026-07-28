@@ -75,11 +75,11 @@ class CVVersion(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     user_cv_id: Mapped[int] = mapped_column(
-        Integer, ForeignKey("user_cv.id"), nullable=False
+        Integer, ForeignKey("user_cv.id", ondelete="CASCADE"), nullable=False
     )
     html_content: Mapped[str] = mapped_column(Text, nullable=False)
     parent_version_id: Mapped[int | None] = mapped_column(
-        Integer, ForeignKey("cv_version.id"), nullable=True
+        Integer, ForeignKey("cv_version.id", ondelete="SET NULL"), nullable=True
     )
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime, server_default=func.now()

@@ -110,6 +110,19 @@ backend/
 - **Validation:** Output must start with `<html` — if not, returns 422 with retry prompt
 - **Error:** Missing API key → clear error message
 
+## Migrations (Alembic)
+
+Setup: `uv run alembic init alembic` (already done)
+
+Commands:
+```bash
+uv run alembic revision --autogenerate -m "description"   # auto-detect schema changes
+uv run alembic upgrade head                                # apply pending migrations
+uv run alembic downgrade -1                                # undo last migration
+```
+
+> Note: The database has circular FK between `user_cv.current_version_id` → `cv_version.id` and `cv_version.user_cv_id` → `user_cv.id`. Autogenerate may fail to sort tables — if so, manually reorder in the generated migration file.
+
 ## Adding New Features
 
 ### New Router

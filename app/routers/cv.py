@@ -1,13 +1,14 @@
+import math
 import re
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import selectinload
 
 from ..database import get_db
 from ..models import User, UserCV, CVVersion, Template
 from ..schemas import (
-    CVCreate, CVResponse, CVDetailResponse,
+    CVCreate, CVResponse, CVDetailResponse, PaginatedCVResponse,
     CVVersionResponse,
 )
 from ..auth import get_current_user
@@ -22,16 +23,54 @@ def extract_title(html: str) -> str:
     return "Untitled CV"
 
 
-@router.get("", response_model=list[CVResponse])
+@router.get("", response_model=PaginatedCVResponse)
 async def list_cvs(
     user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
+    page: int = Query(1, ge=1),
+    page_size: int = Query(9, ge=1, le=50),
 ):
+    count_result = await db.execute(
+        select(func.count()).select_from(UserCV).where(UserCV.user_id == user.id)
+    )
+    total = count_result.scalar()
+
     result = await db.execute(
-        select(UserCV).where(UserCV.user_id == user.id).order_by(UserCV.updated_at.desc())
+        select(UserCV)
+        .options(selectinload(UserCV.current_version), selectinload(UserCV.template))
+        .where(UserCV.user_id == user.id)
+        .order_by(UserCV.updated_at.desc())
+        .offset((page - 1) * page_size)
+        .limit(page_size)
     )
     cvs = result.scalars().all()
-    return [CVResponse.model_validate(cv) for cv in cvs]
+
+    items = []
+    for cv in cvs:
+        if cv.current_version:
+            latest_html = cv.current_version.html_content
+        elif cv.template:
+            latest_html = cv.template.html_code
+        else:
+            latest_html = None
+        items.append(CVResponse(
+            id=cv.id,
+            user_id=cv.user_id,
+            template_id=cv.template_id,
+            title=cv.title,
+            current_version_id=cv.current_version_id,
+            latest_html=latest_html,
+            created_at=cv.created_at,
+            updated_at=cv.updated_at,
+        ))
+
+    return PaginatedCVResponse(
+        items=items,
+        total=total,
+        page=page,
+        page_size=page_size,
+        total_pages=math.ceil(total / page_size) if total > 0 else 1,
+    )
 
 
 @router.post("", response_model=CVDetailResponse, status_code=status.HTTP_201_CREATED)
