@@ -1,18 +1,10 @@
 import re
-import httpx
 from langchain.tools import tool
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
 from ...models import CVVersion, UserCV
-from ...config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, OPENROUTER_MODEL
 from ...services.tool_progress import emit_progress
-
-
-EDIT_SYSTEM_PROMPT = """You are an HTML editor. You receive the current CV HTML and a change description.
-Output ONLY the complete modified HTML starting with <html>. Do NOT output explanations.
-Preserve all Tailwind CSS classes, layout, and structure. Only change what is requested.
-Remove any .print-hide elements and @media print .print-hide CSS rules found in the HTML."""
 
 
 def _extract_title(html: str) -> str:
@@ -20,36 +12,30 @@ def _extract_title(html: str) -> str:
     return m.group(1).strip() if m else "Untitled CV"
 
 
-def _strip_fences(html: str) -> str:
-    html = html.strip()
-    if html.startswith("```html"):
-        html = html[7:]
-    elif html.startswith("```"):
-        html = html[3:]
-    if html.endswith("```"):
-        html = html[:-3]
-    return html.strip()
+def _flexible_find(html: str, needle: str) -> tuple[int, int] | None:
+    """Find needle in html with flexible whitespace handling. Returns (start, end) or None."""
+    parts: list[str] = []
+    i = 0
+    while i < len(needle):
+        if needle[i] in ' \t\n\r':
+            while i < len(needle) and needle[i] in ' \t\n\r':
+                i += 1
+            parts.append(r'\s+')
+        else:
+            c = needle[i]
+            parts.append(re.escape(c))
+            i += 1
+    pattern = ''.join(parts)
+    m = re.search(pattern, html)
+    return (m.start(), m.end()) if m else None
 
 
-async def _call_llm(messages: list[dict]) -> str:
-    async with httpx.AsyncClient(timeout=120) as client:
-        resp = await client.post(
-            f"{OPENROUTER_BASE_URL}/chat/completions",
-            headers={
-                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": OPENROUTER_MODEL,
-                "messages": messages,
-                "temperature": 0.3,
-                "max_tokens": 8192,
-            },
-        )
-        data = resp.json()
-        if "error" in data:
-            raise RuntimeError(data["error"].get("message", str(data["error"])))
-        return data["choices"][0]["message"]["content"]
+def _try_replace_flexible(html: str, old_content: str, new_content: str) -> str | None:
+    """Fallback: replace using flexible whitespace matching. Returns new_html or None."""
+    r = _flexible_find(html, old_content)
+    if r is not None:
+        return html[:r[0]] + new_content + html[r[1]:]
+    return None
 
 
 def create_tools(db: AsyncSession, cv_id: int) -> list:
@@ -103,16 +89,24 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         current_html = version.html_content
 
+        new_html: str | None = None
         count = current_html.count(old_content)
+
         if count == 0:
-            return f"ERROR: old_content not found in the HTML. It may have changed since you last read it. Call get_current_html again, then retry with the exact block."
+            new_html = _try_replace_flexible(current_html, old_content, new_content)
+            if new_html is not None:
+                await emit_progress("Block matched via flexible whitespace normalization")
+                count = 1
+            else:
+                return f"ERROR: old_content not found in the HTML. It may have changed since you last read it. Call get_current_html again, then retry with the exact block."
 
         if count > 1:
             return f"ERROR: old_content matched {count} times. Provide a larger, more specific block (include surrounding context) to uniquely identify the target."
 
         await emit_progress(f"Found block ({len(old_content)} chars), replacing with new content ({len(new_content)} chars)...")
 
-        new_html = current_html.replace(old_content, new_content, 1)
+        if new_html is None:
+            new_html = current_html.replace(old_content, new_content, 1)
 
         title = _extract_title(new_html)
         if cv and title and title != "Untitled CV":
@@ -156,13 +150,22 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         current_html = version.html_content
 
+        new_html: str | None = None
         count = current_html.count(old_content)
+
         if count == 0:
-            return f"ERROR: old_content not found in the HTML. It may have changed since you last read it. Call get_current_html again, then retry with the exact block."
+            flexible = _try_replace_flexible(current_html, old_content, new_content)
+            if flexible is not None:
+                await emit_progress("Block matched via flexible whitespace normalization")
+                new_html = flexible
+                count = 1
+            else:
+                return f"ERROR: old_content not found in the HTML. It may have changed since you last read it. Call get_current_html again, then retry with the exact block."
 
         await emit_progress(f"Found {count} occurrences, replacing all...")
 
-        new_html = current_html.replace(old_content, new_content)
+        if new_html is None:
+            new_html = current_html.replace(old_content, new_content)
 
         title = _extract_title(new_html)
         if cv and title and title != "Untitled CV":
@@ -179,14 +182,63 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         return f"Replaced {count} occurrence(s) successfully. Title: {title}"
 
     @tool
-    async def edit_cv(prompt: str) -> str:
-        """Apply changes to the CV via LLM. Input is a detailed prompt describing the changes.
-        The tool will read current HTML, call LLM to generate a new version, and save it.
+    async def read_lines(start_line: int, end_line: int) -> str:
+        """Read a specific range of lines from the CV HTML. Line numbers start at 1.
 
-        PREFER cv_replace or cv_replace_all for targeted edits — they are much faster.
-        Use edit_cv only for complex structural changes that cannot be expressed as block replacement."""
+        Use this to inspect a specific section without loading the entire HTML.
+        The output includes line numbers for easy reference when using edit_lines.
+        Both start_line and end_line are INCLUSIVE.
 
-        await emit_progress("Reading current CV HTML...")
+        Args:
+            start_line: First line to read (1-indexed, inclusive).
+            end_line: Last line to read (1-indexed, inclusive)."""
+
+        cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
+        cv = cv_result.scalar_one_or_none()
+        if not cv or not cv.current_version_id:
+            return "No CV HTML found."
+
+        result = await db.execute(
+            select(CVVersion).where(CVVersion.id == cv.current_version_id)
+        )
+        version = result.scalar_one_or_none()
+        if not version:
+            return "No CV HTML found."
+
+        lines = version.html_content.split('\n')
+        total = len(lines)
+
+        start = max(0, start_line - 1)
+        end = min(total, end_line)
+
+        if start >= total:
+            return f"start_line {start_line} is beyond the total line count ({total})."
+
+        output_lines: list[str] = []
+        for i in range(start, end):
+            output_lines.append(f"{i + 1:4d}: {lines[i]}")
+
+        await emit_progress(f"Read lines {start + 1}-{end} of {total}")
+        return '\n'.join(output_lines)
+
+    @tool
+    async def edit_lines(start_line: int, end_line: int, new_content: str) -> str:
+        """Replace a range of lines in the CV HTML. Line numbers start at 1.
+
+        This is the PREFERRED way to make edits — more reliable than cv_replace because
+        it uses exact line positions instead of string matching.
+        Both start_line and end_line are INCLUSIVE.
+
+        MUST call read_lines FIRST to verify the exact lines you want to edit.
+        If the read_lines output does not match the section you expect, call read_lines
+        again with different numbers until you find the correct section.
+
+        Args:
+            start_line: First line to replace (1-indexed, inclusive).
+            end_line: Last line to replace (1-indexed, inclusive).
+            new_content: The new content to insert in place of the removed lines.
+                         Can be multiple lines (separated by newlines)."""
+
         cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
         cv = cv_result.scalar_one_or_none()
         if not cv or not cv.current_version_id:
@@ -199,29 +251,27 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         if not version:
             return "No CV HTML found to edit."
 
-        current_html = version.html_content
-        await emit_progress(f"Read HTML ({len(current_html)} chars)")
+        lines = version.html_content.split('\n')
+        total = len(lines)
 
-        await emit_progress("Generating modified HTML via LLM...")
-        new_html = await _call_llm([
-            {"role": "system", "content": EDIT_SYSTEM_PROMPT},
-            {"role": "user", "content": f"Current HTML:\n\n{current_html}\n\nChange request: {prompt}\n\nOutput ONLY the complete modified HTML:"},
-        ])
-        new_html = _strip_fences(new_html)
+        start = start_line - 1
+        end = end_line
 
-        if not new_html.lower().startswith("<html"):
-            await emit_progress("LLM did not return valid HTML, retrying...")
-            new_html = await _call_llm([
-                {"role": "system", "content": EDIT_SYSTEM_PROMPT},
-                {"role": "user", "content": f"Current HTML:\n\n{current_html}\n\nChange request: {prompt}"},
-                {"role": "assistant", "content": new_html},
-                {"role": "user", "content": "The output must start with <html> and contain NO markdown fences. Output ONLY the complete HTML:"},
-            ])
-            new_html = _strip_fences(new_html)
+        if start < 0:
+            return f"start_line must be >= 1, got {start_line}."
+        if end > total:
+            end = total
+        if start >= total:
+            return f"start_line {start_line} is beyond the total line count ({total})."
+        if start > end:
+            return f"start_line ({start_line}) must be <= end_line ({end_line})."
 
-        await emit_progress(f"Generated HTML ({len(new_html)} chars)")
+        replaced_count = end - start
+        new_lines = lines[:start] + [new_content] + lines[end:]
+        new_html = '\n'.join(new_lines)
 
-        await emit_progress("Validating and extracting title...")
+        await emit_progress(f"Replaced lines {start_line} to {end_line} ({replaced_count} lines) with {len(new_content)} chars")
+
         title = _extract_title(new_html)
         if cv and title and title != "Untitled CV":
             cv.title = title
@@ -233,8 +283,8 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         await db.commit()
 
-        await emit_progress(f"CV saved successfully. Title: {title}")
-        return f"CV updated successfully. Title: {title}"
+        await emit_progress(f"Edit completed. Title: {title}")
+        return f"Lines {start_line} to {end_line} replaced successfully. Title: {title}"
 
-    return [get_current_html, cv_replace, cv_replace_all, edit_cv]
+    return [get_current_html, read_lines, edit_lines, cv_replace, cv_replace_all]
 
