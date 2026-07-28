@@ -2,9 +2,11 @@ import json
 import asyncio
 from fastapi import APIRouter, Depends, Request
 from fastapi.responses import StreamingResponse
+from sqlalchemy import select
 
 from ..auth import get_current_user
-from ..models import User
+from ..database import async_session
+from ..models import User, UserCV
 from ..services.agent_session_service import start_agent_run, stop_agent_run, stream_events
 
 router = APIRouter(prefix="/api/threads", tags=["agent-protocol"])
@@ -38,6 +40,18 @@ async def handle_command(
                 "error": "invalid_input",
                 "message": "cv_id is required in input",
             }
+
+        async with async_session() as db:
+            result = await db.execute(
+                select(UserCV.id).where(UserCV.id == cv_id, UserCV.user_id == user.id)
+            )
+            if not result.scalar_one_or_none():
+                return {
+                    "type": "error",
+                    "id": cmd_id,
+                    "error": "not_found",
+                    "message": "CV not found or access denied",
+                }
 
         run_id = await start_agent_run(thread_id, cv_id, messages)
         return {
