@@ -272,5 +272,21 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         await emit_progress(f"Edit completed.")
         return f"Lines {start_line} to {end_line} replaced successfully."
 
-    return [get_current_html, read_lines, edit_lines, cv_replace, cv_replace_all]
+    @tool
+    async def set_cv_title(title: str) -> str:
+        """Set the CV title. The title should be concise (max ~60 chars), describing the job target.
+        Example: "Budi Santoso - Software Engineer CV"
+
+        Args:
+            title: The new title for this CV."""
+        cv_result = await db.execute(select(UserCV).where(UserCV.id == cv_id))
+        cv = cv_result.scalar_one_or_none()
+        if not cv:
+            return "CV not found."
+        cv.title = title[:200]
+        await db.commit()
+        await emit_progress(f"CV title set to: {title[:200]}")
+        return f"Title set to: {title[:200]}"
+
+    return [get_current_html, read_lines, edit_lines, cv_replace, cv_replace_all, set_cv_title]
 
