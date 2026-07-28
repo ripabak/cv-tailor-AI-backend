@@ -1,5 +1,4 @@
 import math
-import re
 import secrets
 import string
 from fastapi import APIRouter, Depends, HTTPException, Query, status
@@ -10,7 +9,7 @@ from sqlalchemy.orm import selectinload, joinedload
 from ..database import get_db
 from ..models import User, UserCV, CVVersion, Template
 from ..schemas import (
-    CVCreate, CVResponse, CVDetailResponse, PaginatedCVResponse,
+    CVCreate, CVUpdate, CVResponse, CVDetailResponse, PaginatedCVResponse,
     CVVersionResponse, PublishResponse, CVPublicResponse,
 )
 from ..auth import get_current_user
@@ -20,13 +19,6 @@ def generate_slug(length: int = 8) -> str:
     return ''.join(secrets.choice(string.ascii_lowercase + string.digits) for _ in range(length))
 
 router = APIRouter(prefix="/api/cv", tags=["cv"])
-
-
-def extract_title(html: str) -> str:
-    match = re.search(r"<title[^>]*>(.*?)</title>", html, re.IGNORECASE | re.DOTALL)
-    if match:
-        return match.group(1).strip()
-    return "Untitled CV"
 
 
 @router.get("", response_model=PaginatedCVResponse)
@@ -94,12 +86,10 @@ async def create_cv(
     if not template:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Template not found")
 
-    title = extract_title(template.html_code)
-
     cv = UserCV(
         user_id=user.id,
         template_id=template.id,
-        title=title,
+        title=data.title or template.title,
     )
     db.add(cv)
     await db.flush()
@@ -138,6 +128,42 @@ async def get_cv(
     cv = result.scalar_one_or_none()
     if not cv:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    latest_html = cv.current_version.html_content if cv.current_version else None
+    return CVDetailResponse(
+        id=cv.id,
+        user_id=cv.user_id,
+        template_id=cv.template_id,
+        title=cv.title,
+        current_version_id=cv.current_version_id,
+        created_at=cv.created_at,
+        updated_at=cv.updated_at,
+        latest_html=latest_html,
+        is_published=cv.is_published,
+        public_slug=cv.public_slug,
+        template_title=cv.template.title if cv.template else None,
+    )
+
+
+@router.patch("/{cv_id}", response_model=CVDetailResponse)
+async def update_cv(
+    cv_id: int,
+    data: CVUpdate,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(UserCV)
+        .options(selectinload(UserCV.current_version), selectinload(UserCV.template))
+        .where(UserCV.id == cv_id, UserCV.user_id == user.id)
+    )
+    cv = result.scalar_one_or_none()
+    if not cv:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    cv.title = data.title
+    await db.commit()
+    await db.refresh(cv)
 
     latest_html = cv.current_version.html_content if cv.current_version else None
     return CVDetailResponse(
@@ -218,9 +244,6 @@ async def revert_version(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Version not found")
 
     cv.current_version_id = source_version.id
-    title = extract_title(source_version.html_content)
-    if title and title != "Untitled CV":
-        cv.title = title
     await db.commit()
     await db.refresh(cv)
 

@@ -40,6 +40,11 @@ class TemplateResponse(BaseModel):
 
 class CVCreate(BaseModel):
     template_id: int
+    title: str | None = None
+
+
+class CVUpdate(BaseModel):
+    title: str
 
 
 class CVResponse(BaseModel):

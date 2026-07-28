@@ -7,11 +7,6 @@ from ...models import CVVersion, UserCV
 from ...services.tool_progress import emit_progress
 
 
-def _extract_title(html: str) -> str:
-    m = re.search(r"<title[^>]*>(.*?)</title>", html, re.IGNORECASE | re.DOTALL)
-    return m.group(1).strip() if m else "Untitled CV"
-
-
 def _flexible_find(html: str, needle: str) -> tuple[int, int] | None:
     """Find needle in html with flexible whitespace handling. Returns (start, end) or None."""
     parts: list[str] = []
@@ -108,9 +103,6 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         if new_html is None:
             new_html = current_html.replace(old_content, new_content, 1)
 
-        title = _extract_title(new_html)
-        if cv and title and title != "Untitled CV":
-            cv.title = title
         if cv:
             new_version = CVVersion(user_cv_id=cv_id, html_content=new_html, parent_version_id=version.id)
             db.add(new_version)
@@ -119,8 +111,8 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         await db.commit()
 
-        await emit_progress(f"Replace completed. Title: {title}")
-        return f"Block replaced successfully ({count} occurrence). Title: {title}"
+        await emit_progress(f"Replace completed.")
+        return f"Block replaced successfully ({count} occurrence)."
 
     @tool
     async def cv_replace_all(old_content: str, new_content: str) -> str:
@@ -167,9 +159,6 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         if new_html is None:
             new_html = current_html.replace(old_content, new_content)
 
-        title = _extract_title(new_html)
-        if cv and title and title != "Untitled CV":
-            cv.title = title
         if cv:
             new_version = CVVersion(user_cv_id=cv_id, html_content=new_html, parent_version_id=version.id)
             db.add(new_version)
@@ -178,8 +167,8 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         await db.commit()
 
-        await emit_progress(f"Replace completed. Title: {title}")
-        return f"Replaced {count} occurrence(s) successfully. Title: {title}"
+        await emit_progress(f"Replace completed.")
+        return f"Replaced {count} occurrence(s) successfully."
 
     @tool
     async def read_lines(start_line: int, end_line: int) -> str:
@@ -272,9 +261,6 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         await emit_progress(f"Replaced lines {start_line} to {end_line} ({replaced_count} lines) with {len(new_content)} chars")
 
-        title = _extract_title(new_html)
-        if cv and title and title != "Untitled CV":
-            cv.title = title
         if cv:
             new_version = CVVersion(user_cv_id=cv_id, html_content=new_html, parent_version_id=version.id)
             db.add(new_version)
@@ -283,8 +269,8 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
 
         await db.commit()
 
-        await emit_progress(f"Edit completed. Title: {title}")
-        return f"Lines {start_line} to {end_line} replaced successfully. Title: {title}"
+        await emit_progress(f"Edit completed.")
+        return f"Lines {start_line} to {end_line} replaced successfully."
 
     return [get_current_html, read_lines, edit_lines, cv_replace, cv_replace_all]
 

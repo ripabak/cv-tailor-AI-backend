@@ -65,7 +65,7 @@ backend/
 | id | PK | |
 | user_id | FK→User | |
 | template_id | FK→Template | |
-| title | VARCHAR | Auto-extracted from `<title>` |
+| title | VARCHAR | User-editable (defaults to template title) |
 | created_at, updated_at | DATETIME | |
 
 ### CVVersion
@@ -98,6 +98,7 @@ backend/
 | GET | / | Yes | List user's CVs |
 | POST | / | Yes | Create CV + first generate (takes template_id + prompt) |
 | GET | /{id} | Yes | CV detail + latest HTML |
+| PATCH | /{id} | Yes | Update CV title |
 | DELETE | /{id} | Yes | Delete CV + all versions |
 | GET | /{id}/versions | Yes | List version history |
 | POST | /{id}/versions/{vid}/revert | Yes | Restore old version → new version |
