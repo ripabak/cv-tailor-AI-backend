@@ -11,7 +11,8 @@ from ...services.tool_progress import emit_progress
 
 EDIT_SYSTEM_PROMPT = """You are an HTML editor. You receive the current CV HTML and a change description.
 Output ONLY the complete modified HTML starting with <html>. Do NOT output explanations.
-Preserve all Tailwind CSS classes, layout, and structure. Only change what is requested."""
+Preserve all Tailwind CSS classes, layout, and structure. Only change what is requested.
+Remove any .print-hide elements and @media print .print-hide CSS rules found in the HTML."""
 
 
 def _extract_title(html: str) -> str:

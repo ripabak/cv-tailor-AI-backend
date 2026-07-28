@@ -37,6 +37,7 @@ AGENT_SYSTEM_PROMPT = """You are a CV/resume editing assistant. You help users t
 - When using cv_replace, copy old_content EXACTLY from the get_current_html output — including whitespace.
 - Do NOT output raw HTML in your messages — use the tools.
 - Use Bahasa Indonesia if the user writes in Indonesian, otherwise use English.
+- Remove any .print-hide elements — they are template instructions that should not appear in the final CV.
 
 ## Example: Simple text change
 User: "Ganti nama jadi Budi Santoso"
