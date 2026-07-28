@@ -31,6 +31,6 @@ def build_agent(db: AsyncSession, cv_id: int) -> CompiledStateGraph:
         middleware=[
             TodoListMiddleware(),
             ModelRetryMiddleware(max_retries=2),
-            ToolCallLimitMiddleware(run_limit=15),
+            ToolCallLimitMiddleware(run_limit=40),
         ],
     )
