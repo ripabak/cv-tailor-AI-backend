@@ -17,6 +17,7 @@ class AgentSession:
         self._running = False
         self._task: asyncio.Task | None = None
         self._seq = 0
+        self.total_usage: dict = {}
 
     def buffer_event(self, event: dict):
         self._seq += 1
@@ -143,7 +144,22 @@ async def start_agent_run(
 
                     elif ev_type == "message-finish":
                         if current_msg_id:
-                            session.buffer_event(_make_event("message_end", {"id": current_msg_id}))
+                            usage = msg_event.get("usage") or {}
+                            metadata = msg_event.get("metadata") or {}
+                            for k in ("input_tokens", "output_tokens", "total_tokens"):
+                                session.total_usage[k] = session.total_usage.get(k, 0) + usage.get(k, 0)
+                            session.total_usage["calls"] = session.total_usage.get("calls", 0) + 1
+                            session.buffer_event(_make_event("message_end", {
+                                "id": current_msg_id,
+                                "usage": {
+                                    "input_tokens": usage.get("input_tokens", 0),
+                                    "output_tokens": usage.get("output_tokens", 0),
+                                    "total_tokens": usage.get("total_tokens", 0),
+                                    "cost": metadata.get("cost"),
+                                },
+                                "total_usage": session.total_usage.copy(),
+                                "model": metadata.get("model_name"),
+                            }))
 
                 elif method == "tools":
                     ev_type = raw_data.get("event", "")
