@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import CORS_ORIGINS
 from .database import init_db
 from .seed import seed_templates
-from .routers import auth, templates, cv, agent_protocol
+from .routers import auth, templates, cv, public, agent_protocol
 
 
 @asynccontextmanager
@@ -28,4 +28,5 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(templates.router)
 app.include_router(cv.router)
+app.include_router(public.router)
 app.include_router(agent_protocol.router)
