@@ -276,7 +276,7 @@ async def publish_cv(
     cv.public_slug = slug
     await db.commit()
 
-    return PublishResponse(slug=slug, url=f"/cv/{slug}")
+    return PublishResponse(slug=slug, url=f"/view/{slug}")
 
 
 @router.post("/{cv_id}/unpublish")
