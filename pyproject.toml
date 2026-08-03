@@ -17,4 +17,5 @@ dependencies = [
     "langchain-openrouter",
     "python-dotenv>=1.0",
     "alembic>=1.18.5",
+    "langgraph-checkpoint-postgres>=3.1.1",
 ]

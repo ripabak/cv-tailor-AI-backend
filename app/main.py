@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import CORS_ORIGINS
 from .database import init_db
 from .seed import seed_templates
+from .agent.checkpointer import init_checkpointer, close_checkpointer
 from .routers import auth, templates, cv, public, agent_protocol
 
 
@@ -12,7 +13,9 @@ from .routers import auth, templates, cv, public, agent_protocol
 async def lifespan(_app: FastAPI):
     await init_db()
     await seed_templates()
+    await init_checkpointer()
     yield
+    await close_checkpointer()
 
 
 app = FastAPI(lifespan=lifespan)

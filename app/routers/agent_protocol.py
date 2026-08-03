@@ -6,10 +6,20 @@ from sqlalchemy import select
 
 from ..auth import get_current_user
 from ..database import async_session
-from ..models import User, UserCV
-from ..services.agent_session_service import start_agent_run, stop_agent_run, stream_events
+from ..models import User, UserCV, AgentThread
+from ..services.agent_session_service import (
+    start_agent_run,
+    stop_agent_run,
+    stream_events,
+    get_thread_history,
+    delete_thread_state,
+)
 
 router = APIRouter(prefix="/api/threads", tags=["agent-protocol"])
+
+
+def _thread_key(user_id: int, thread_id: str) -> str:
+    return f"{user_id}:{thread_id}"
 
 
 @router.post("/{thread_id}/commands")
@@ -53,7 +63,13 @@ async def handle_command(
                     "message": "CV not found or access denied",
                 }
 
-        run_id = await start_agent_run(thread_id, cv_id, messages)
+        run_id = await start_agent_run(
+            thread_id,
+            _thread_key(user.id, thread_id),
+            user.id,
+            cv_id,
+            messages,
+        )
         return {
             "type": "success",
             "id": cmd_id,
@@ -102,3 +118,47 @@ async def handle_stream(
             "Connection": "keep-alive",
         },
     )
+
+
+@router.get("/{thread_id}")
+async def get_thread_history_route(
+    thread_id: str,
+    user: User = Depends(get_current_user),
+):
+    thread_key = _thread_key(user.id, thread_id)
+
+    async with async_session() as db:
+        result = await db.execute(
+            select(AgentThread.id).where(
+                AgentThread.thread_id == thread_key,
+                AgentThread.user_id == user.id,
+            )
+        )
+        if not result.scalar_one_or_none():
+            return {"messages": []}
+
+    messages = await get_thread_history(thread_key)
+    return {"messages": messages}
+
+
+@router.delete("/{thread_id}")
+async def delete_thread_route(
+    thread_id: str,
+    user: User = Depends(get_current_user),
+):
+    thread_key = _thread_key(user.id, thread_id)
+
+    async with async_session() as db:
+        result = await db.execute(
+            select(AgentThread).where(
+                AgentThread.thread_id == thread_key,
+                AgentThread.user_id == user.id,
+            )
+        )
+        mapping = result.scalar_one_or_none()
+        if mapping:
+            await delete_thread_state(thread_key)
+            await db.delete(mapping)
+            await db.commit()
+
+    return {"ok": True}

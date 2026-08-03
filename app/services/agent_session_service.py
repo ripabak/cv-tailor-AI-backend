@@ -4,8 +4,13 @@ import uuid
 from collections import defaultdict
 from typing import AsyncGenerator
 
+from langchain_core.runnables import RunnableConfig
+from sqlalchemy import select
+
 from ..agent.agent import build_agent
+from ..agent.checkpointer import get_checkpointer
 from ..database import async_session
+from ..models import AgentThread
 from .tool_progress import set_progress_emitter, reset_progress_emitter
 
 
@@ -24,6 +29,7 @@ class AgentSession:
         event["seq"] = self._seq
         if "event_id" not in event:
             event["event_id"] = str(uuid.uuid4())
+        event["run_id"] = self.run_id
         self.events.append(event)
         for q in self.subscribers:
             q.put_nowait(event)
@@ -80,6 +86,8 @@ def _make_event(method: str, data) -> dict:
 
 async def start_agent_run(
     thread_id: str,
+    thread_key: str,
+    user_id: int,
     cv_id: int,
     messages: list[dict],
 ) -> str:
@@ -88,14 +96,25 @@ async def start_agent_run(
     session.run_id = run_id
     session._running = True
     session.events.clear()
+    session.total_usage = {}
 
     async def run():
         db = async_session()
         try:
-            agent = build_agent(db, cv_id)
+            agent = build_agent(db, cv_id, get_checkpointer())
+            thread_config: RunnableConfig = {"configurable": {"thread_id": thread_key}}
+
+            await _upsert_thread_mapping(db, thread_key, user_id, cv_id)
+
+            state = await agent.aget_state(thread_config)
+            has_history = bool(
+                state is not None and state.values.get("messages")
+            )
+            input_messages = messages[-1:] if has_history and messages else messages
 
             stream = await agent.astream_events(
-                {"messages": messages},
+                {"messages": input_messages},
+                config=thread_config,
                 version="v3",
             )
 
@@ -181,7 +200,10 @@ async def start_agent_run(
                             "error": None,
                         }))
 
-            session.buffer_event(_make_event("lifecycle", {"event": "completed"}))
+            session.buffer_event(_make_event("lifecycle", {
+                "event": "completed",
+                "total_usage": session.total_usage.copy(),
+            }))
 
         except asyncio.CancelledError:
             session.buffer_event(_make_event("lifecycle", {
@@ -230,3 +252,77 @@ def _encode_sse(event: dict) -> str:
     event_type = event.get("method", "message")
     data = json.dumps({k: v for k, v in event.items() if k not in ("seq",)})
     return f"{id_line}event: {event_type}\ndata: {data}\n\n"
+
+
+async def _upsert_thread_mapping(
+    db, thread_key: str, user_id: int, cv_id: int
+) -> None:
+    result = await db.execute(
+        select(AgentThread).where(AgentThread.thread_id == thread_key)
+    )
+    mapping = result.scalar_one_or_none()
+    if mapping is None:
+        db.add(AgentThread(thread_id=thread_key, user_id=user_id, cv_id=cv_id))
+    elif mapping.cv_id != cv_id:
+        mapping.cv_id = cv_id
+    await db.commit()
+
+
+def _msg_content(content) -> str:
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        text_parts = []
+        for block in content:
+            if isinstance(block, dict):
+                if block.get("type") == "text" and block.get("text"):
+                    text_parts.append(block["text"])
+                elif block.get("type") == "reasoning" and block.get("reasoning"):
+                    text_parts.append(block["reasoning"])
+            elif isinstance(block, str):
+                text_parts.append(block)
+        return "\n".join(text_parts)
+    return str(content)
+
+
+def serialize_message(message) -> dict:
+    mtype = message.type
+    content = _msg_content(message.content)
+    if mtype == "human":
+        return {"type": "human", "content": content}
+    if mtype == "ai":
+        result: dict = {"type": "ai", "content": content}
+        tool_calls = getattr(message, "tool_calls", None)
+        if tool_calls:
+            result["tool_calls"] = [
+                {
+                    "id": tc.get("id", ""),
+                    "name": tc.get("name", ""),
+                    "args": tc.get("args", {}),
+                    "type": "tool_call",
+                }
+                for tc in tool_calls
+            ]
+        return result
+    if mtype == "tool":
+        return {
+            "type": "tool",
+            "content": content,
+            "tool_call_id": getattr(message, "tool_call_id", ""),
+            "name": getattr(message, "name", ""),
+        }
+    return {"type": mtype, "content": content}
+
+
+async def get_thread_history(thread_key: str) -> list[dict]:
+    saver = get_checkpointer()
+    checkpoint = await saver.aget_tuple({"configurable": {"thread_id": thread_key}})
+    if checkpoint is None or checkpoint.state is None:
+        return []
+    messages = checkpoint.state.get("messages", [])
+    return [serialize_message(m) for m in messages]
+
+
+async def delete_thread_state(thread_key: str) -> None:
+    saver = get_checkpointer()
+    await saver.adelete_thread(thread_key)

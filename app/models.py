@@ -88,3 +88,20 @@ class CVVersion(Base):
     )
 
     cv: Mapped["UserCV"] = relationship(back_populates="versions", foreign_keys=[user_cv_id])
+
+
+class AgentThread(Base):
+    __tablename__ = "agent_thread"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    thread_id: Mapped[str] = mapped_column(String, unique=True, nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("user.id"), nullable=False)
+    cv_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("user_cv.id", ondelete="CASCADE"), nullable=False
+    )
+    created_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime, server_default=func.now()
+    )
+    updated_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime, server_default=func.now(), onupdate=func.now()
+    )

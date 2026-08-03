@@ -1,10 +1,11 @@
 from langchain.agents import create_agent
 from langchain.agents.middleware import (
-    TodoListMiddleware,
-    ModelRetryMiddleware,
-    ToolCallLimitMiddleware,
+    ContextEditingMiddleware,
+    ClearToolUsesEdit,
+    SummarizationMiddleware,
 )
 from langchain.chat_models import init_chat_model
+from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from langgraph.graph.state import CompiledStateGraph
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -15,7 +16,11 @@ from ..config import (
 )
 
 
-def build_agent(db: AsyncSession, cv_id: int) -> CompiledStateGraph:
+def build_agent(
+    db: AsyncSession,
+    cv_id: int,
+    checkpointer: AsyncPostgresSaver,
+) -> CompiledStateGraph:
     tools = create_tools(db, cv_id)
 
     model = init_chat_model(
@@ -28,9 +33,21 @@ def build_agent(db: AsyncSession, cv_id: int) -> CompiledStateGraph:
         model=model,
         tools=tools,
         system_prompt=AGENT_SYSTEM_PROMPT,
+        checkpointer=checkpointer,
         middleware=[
-            TodoListMiddleware(),
-            ModelRetryMiddleware(max_retries=2),
-            ToolCallLimitMiddleware(run_limit=40),
+            SummarizationMiddleware(
+                model=model,
+                trigger=("tokens", 80000),
+                keep=("messages", 10),
+            ),
+            ContextEditingMiddleware(
+                edits=[
+                    ClearToolUsesEdit(
+                        trigger=60000,
+                        keep=5,
+                        clear_tool_inputs=True,
+                    ),
+                ],
+            ),
         ],
     )

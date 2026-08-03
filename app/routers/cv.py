@@ -7,12 +7,13 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import selectinload, joinedload
 
 from ..database import get_db
-from ..models import User, UserCV, CVVersion, Template
+from ..models import User, UserCV, CVVersion, Template, AgentThread
 from ..schemas import (
     CVCreate, CVUpdate, CVResponse, CVDetailResponse, PaginatedCVResponse,
     CVVersionResponse, PublishResponse, CVPublicResponse,
 )
 from ..auth import get_current_user
+from ..agent.checkpointer import get_checkpointer
 
 
 def generate_slug(length: int = 8) -> str:
@@ -193,6 +194,17 @@ async def delete_cv(
     cv = result.scalar_one_or_none()
     if not cv:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    threads_result = await db.execute(
+        select(AgentThread).where(AgentThread.cv_id == cv_id)
+    )
+    threads = threads_result.scalars().all()
+    if threads:
+        saver = get_checkpointer()
+        for thread in threads:
+            await saver.adelete_thread(thread.thread_id)
+            await db.delete(thread)
+        await db.flush()
 
     await db.delete(cv)
     await db.commit()
