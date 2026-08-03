@@ -6,7 +6,8 @@ from .config import CORS_ORIGINS
 from .database import init_db
 from .seed import seed_templates
 from .agent.checkpointer import init_checkpointer, close_checkpointer
-from .routers import auth, templates, cv, public, agent_protocol
+from .agent.memory_store import init_memory_store, close_memory_store
+from .routers import auth, templates, cv, public, agent_protocol, memory
 
 
 @asynccontextmanager
@@ -14,7 +15,9 @@ async def lifespan(_app: FastAPI):
     await init_db()
     await seed_templates()
     await init_checkpointer()
+    await init_memory_store()
     yield
+    await close_memory_store()
     await close_checkpointer()
 
 
@@ -33,3 +36,4 @@ app.include_router(templates.router)
 app.include_router(cv.router)
 app.include_router(public.router)
 app.include_router(agent_protocol.router)
+app.include_router(memory.router)

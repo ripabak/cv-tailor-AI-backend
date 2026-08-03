@@ -101,3 +101,23 @@ class CVPublicResponse(BaseModel):
     title: str
     latest_html: str
     display_name: str
+
+
+class MemoryFactCreate(BaseModel):
+    category: str
+    content: str
+
+
+class MemoryFactUpdate(BaseModel):
+    content: str
+
+
+class MemoryFactResponse(BaseModel):
+    key: str
+    category: str
+    content: str
+    updated_at: str
+
+
+class MemoryListResponse(BaseModel):
+    facts: list[MemoryFactResponse]

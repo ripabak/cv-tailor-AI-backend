@@ -9,6 +9,7 @@ from sqlalchemy import select
 
 from ..agent.agent import build_agent
 from ..agent.checkpointer import get_checkpointer
+from ..agent.memory_store import get_memory_store
 from ..database import async_session
 from ..models import AgentThread
 from .tool_progress import set_progress_emitter, reset_progress_emitter
@@ -101,7 +102,7 @@ async def start_agent_run(
     async def run():
         db = async_session()
         try:
-            agent = build_agent(db, cv_id, get_checkpointer())
+            agent = await build_agent(db, cv_id, user_id, get_checkpointer(), get_memory_store())
             thread_config: RunnableConfig = {"configurable": {"thread_id": thread_key}}
 
             await _upsert_thread_mapping(db, thread_key, user_id, cv_id)

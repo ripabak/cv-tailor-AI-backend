@@ -20,7 +20,7 @@ Config via `.env` (copy from `.env.example`).
 ```
 backend/
 ├── app/
-│   ├── main.py              # FastAPI entry + lifespan (init_db + seed_templates)
+│   ├── main.py              # FastAPI entry + lifespan (init_db + seed_templates + checkpointer + memory store)
 │   ├── config.py            # Env vars: DB_URL, SECRET_KEY, OPENROUTER_*
 │   ├── database.py          # Async engine + session + get_db dependency
 │   ├── models.py            # SQLAlchemy models: User, Template, UserCV, CVVersion
@@ -28,11 +28,23 @@ backend/
 │   ├── auth.py              # JWT create/decode, bcrypt hashing, get_current_user
 │   ├── seed.py              # Startup seeder for default template
 │   ├── resume-template.html # Default CV seed template
+│   ├── agent/
+│   │   ├── agent.py         # build_agent (async): CV tools + memory tools, auto-inject memori ke system prompt
+│   │   ├── checkpointer.py  # AsyncPostgresSaver singleton (chat history per thread)
+│   │   ├── memory_store.py  # AsyncPostgresStore singleton (long-term memory fakta user)
+│   │   └── tools/
+│   │       ├── cv.py        # CV edit tools: get_current_html, read_lines, edit_lines, cv_replace, set_cv_title
+│   │       └── memory.py    # Memory tools: get_memory, save_fact, delete_fact
+│   ├── services/
+│   │   ├── agent_session_service.py  # SSE streaming agent runs, thread history
+│   │   └── tool_progress.py
 │   └── routers/
 │       ├── auth.py          # POST /api/auth/register, /login, GET /api/auth/me
 │       ├── templates.py     # GET /api/templates
-│       ├── cv.py            # CRUD /api/cv + versioning
-│       └── ai.py            # POST /api/cv/{id}/generate (OpenRouter refine)
+│       ├── cv.py            # CRUD /api/cv + versioning + publish
+│       ├── memory.py        # GET/POST/PATCH/DELETE /api/memory (kelola long-term memory)
+│       ├── public.py        # GET /api/cv/p/{slug} public CV
+│       └── agent_protocol.py# POST/GET/DELETE /api/threads (chat agent protocol)
 ├── .env.example
 └── pyproject.toml
 ```
@@ -104,11 +116,20 @@ backend/
 | POST | /{id}/versions/{vid}/revert | Yes | Restore old version → new version |
 | POST | /{id}/generate | Yes | Refine CV via LLM chat |
 
+### Memory (`/api/memory`)
+| Method | Path | Auth | Description |
+|--------|------|------|-------------|
+| GET | / | Yes | List all user facts: `{facts: [...]}` |
+| POST | / | Yes | Create fact `{category, content}` (category bebas) |
+| PATCH | /{key} | Yes | Update fact content (last-write-wins) |
+| DELETE | /{key} | Yes | Delete fact |
+
 ## LLM Integration (OpenRouter)
 
-- **System Prompt:** Universal — generates title + updates HTML, preserves Tailwind, removes `.print-hide`
+- **System Prompt:** Dynamic — base prompt + injected long-term memory summary (`build_memory_summary`)
 - **Model:** Configurable via `OPENROUTER_MODEL` env (default: `google/gemini-3.6-flash`)
-- **Validation:** Output must start with `<html` — if not, returns 422 with retry prompt
+- **Tools:** CV edit tools (`tools/cv.py`) + memory tools (`tools/memory.py` — get_memory(category), save_fact, delete_fact)
+- **Long-term Memory:** `AsyncPostgresStore` (tabel `store`), namespace `("user", id)`; fakta = JSON docs `{category, content, created_at, updated_at}`, key = uuid; kategori bebas
 - **Error:** Missing API key → clear error message
 
 ## Migrations (Alembic)
