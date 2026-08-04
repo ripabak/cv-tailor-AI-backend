@@ -129,8 +129,8 @@ backend/
 
 - **System Prompt:** Dynamic — base prompt + injected long-term memory summary (`build_memory_summary`)
 - **Model:** Configurable via `OPENROUTER_MODEL` env (default: `google/gemini-3.6-flash`)
-- **Tools:** CV edit tools (`tools/cv.py`) + memory tools (`tools/memory.py` — get_memory(category), save_fact, delete_fact)
-- **Long-term Memory:** `AsyncPostgresStore` (tabel `store`), namespace `("user", id)`; fakta = JSON docs `{category, content, created_at, updated_at}`, key = uuid; kategori bebas
+- **Tools:** CV edit tools (`tools/cv.py`) + memory tools (`tools/memory.py` — list_categories, get_memory(category, limit, offset), save_fact(category, content, key), delete_fact(key, category))
+- **Long-term Memory:** `AsyncPostgresStore` (tabel `store`), namespace `("user", id)`; fakta = JSON docs `{category, content, created_at, updated_at}`, key = uuid; kategori bebas; `get_memory` includes keys in output; `delete_fact` supports key-based or category-based bulk delete
 - **Error:** Missing API key → clear error message
 
 ## Migrations (Alembic)

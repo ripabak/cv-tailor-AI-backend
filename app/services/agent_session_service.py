@@ -318,9 +318,9 @@ def serialize_message(message) -> dict:
 async def get_thread_history(thread_key: str) -> list[dict]:
     saver = get_checkpointer()
     checkpoint = await saver.aget_tuple({"configurable": {"thread_id": thread_key}})
-    if checkpoint is None or checkpoint.state is None:
+    if checkpoint is None or checkpoint.checkpoint is None:
         return []
-    messages = checkpoint.state.get("messages", [])
+    messages = checkpoint.checkpoint.get("channel_values", {}).get("messages", [])
     return [serialize_message(m) for m in messages]
 
 

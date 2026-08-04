@@ -1,10 +1,10 @@
 from langchain.agents import create_agent
+from langchain_openrouter import ChatOpenRouter
 from langchain.agents.middleware import (
     ContextEditingMiddleware,
     ClearToolUsesEdit,
     SummarizationMiddleware,
 )
-from langchain.chat_models import init_chat_model
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from langgraph.graph.state import CompiledStateGraph
 from langgraph.store.postgres import AsyncPostgresStore
@@ -52,10 +52,11 @@ async def build_agent(
     memory_summary = await build_memory_summary(store, user_id)
     system_prompt = AGENT_SYSTEM_PROMPT + memory_summary
 
-    model = init_chat_model(
-        f"openrouter:{OPENROUTER_MODEL}",
+    model = ChatOpenRouter(
+        model_name=OPENROUTER_MODEL,
         temperature=0.3,
         max_tokens=8192,
+        reasoning={"effort": "low", "summary": "auto"},
     )
 
     return create_agent(

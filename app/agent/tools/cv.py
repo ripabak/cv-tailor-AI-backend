@@ -61,7 +61,7 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         """Replace a block in the CV HTML using direct search-and-replace. No LLM call needed.
 
         Use this for targeted, precise edits when you know exactly what block to replace.
-        MUCH faster than edit_cv because it does NOT call the LLM to regenerate the entire HTML.
+        It does NOT call the LLM to regenerate the entire HTML.
 
         Args:
             old_content: The exact HTML block to find. Copy it verbatim from get_current_html.
@@ -119,7 +119,7 @@ def create_tools(db: AsyncSession, cv_id: int) -> list:
         """Replace ALL occurrences of a block in the CV HTML using direct search-and-replace.
 
         Use this when you want to replace a pattern that appears multiple times.
-        Faster than edit_cv because it does NOT call the LLM.
+        It does NOT call the LLM to regenerate the entire HTML.
 
         Args:
             old_content: The HTML block to find and replace everywhere.
