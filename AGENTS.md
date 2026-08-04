@@ -115,6 +115,7 @@ backend/
 | GET | /{id}/versions | Yes | List version history |
 | POST | /{id}/versions/{vid}/revert | Yes | Restore old version → new version |
 | POST | /{id}/generate | Yes | Refine CV via LLM chat |
+| POST | /{id}/html | Yes | Save direct-edited HTML as new version (body: `{html: string}`) |
 
 ### Memory (`/api/memory`)
 | Method | Path | Auth | Description |

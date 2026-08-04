@@ -47,6 +47,10 @@ class CVUpdate(BaseModel):
     title: str
 
 
+class CVHTMLUpdate(BaseModel):
+    html: str
+
+
 class CVResponse(BaseModel):
     id: int
     user_id: int

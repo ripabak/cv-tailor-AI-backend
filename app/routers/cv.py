@@ -9,7 +9,7 @@ from sqlalchemy.orm import selectinload, joinedload
 from ..database import get_db
 from ..models import User, UserCV, CVVersion, Template, AgentThread
 from ..schemas import (
-    CVCreate, CVUpdate, CVResponse, CVDetailResponse, PaginatedCVResponse,
+    CVCreate, CVUpdate, CVHTMLUpdate, CVResponse, CVDetailResponse, PaginatedCVResponse,
     CVVersionResponse, PublishResponse, CVPublicResponse,
 )
 from ..auth import get_current_user
@@ -230,6 +230,56 @@ async def list_versions(
     )
     versions = versions_result.scalars().all()
     return [CVVersionResponse.model_validate(v) for v in versions]
+
+
+@router.post("/{cv_id}/html", response_model=CVDetailResponse)
+async def save_cv_html(
+    cv_id: int,
+    data: CVHTMLUpdate,
+    user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    if not data.html.strip():
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="HTML must not be empty")
+
+    result = await db.execute(
+        select(UserCV)
+        .options(selectinload(UserCV.current_version), selectinload(UserCV.template))
+        .where(UserCV.id == cv_id, UserCV.user_id == user.id)
+    )
+    cv = result.scalar_one_or_none()
+    if not cv:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="CV not found")
+
+    parent_id = cv.current_version_id
+    if parent_id is not None:
+        parent_result = await db.execute(
+            select(CVVersion).where(CVVersion.id == parent_id, CVVersion.user_cv_id == cv_id)
+        )
+        if not parent_result.scalar_one_or_none():
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Version not found")
+
+    new_version = CVVersion(user_cv_id=cv_id, html_content=data.html, parent_version_id=parent_id)
+    db.add(new_version)
+    await db.flush()
+    cv.current_version_id = new_version.id
+    await db.commit()
+    await db.refresh(cv)
+
+    latest_html = cv.current_version.html_content if cv.current_version else None
+    return CVDetailResponse(
+        id=cv.id,
+        user_id=cv.user_id,
+        template_id=cv.template_id,
+        title=cv.title,
+        current_version_id=cv.current_version_id,
+        created_at=cv.created_at,
+        updated_at=cv.updated_at,
+        latest_html=latest_html,
+        is_published=cv.is_published,
+        public_slug=cv.public_slug,
+        template_title=cv.template.title if cv.template else None,
+    )
 
 
 @router.post("/{cv_id}/versions/{version_id}/revert", response_model=CVVersionResponse)
